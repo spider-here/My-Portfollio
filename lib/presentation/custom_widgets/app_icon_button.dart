@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controllers/theme_controller.dart';
-import '../creatives/colors.dart';
+import '../../controllers/presentation/theme_controller.dart';
+import '../creatives/app_colors.dart';
 
 class AppIconButton extends StatelessWidget {
   final Widget icon;
   final VoidCallback onClick;
-  final ThemeController themeC = Get.put(ThemeController());
+  final ThemeController themeC = Get.find<ThemeController>();
   final RxBool hover = false.obs;
 
-  AppIconButton({required this.onClick, required this.icon});
+  AppIconButton({super.key, required this.onClick, required this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -35,19 +35,19 @@ class AppIconButton extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
 
     return ButtonStyle(
-      shape: MaterialStateProperty.all(RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15.0),
+      shape: const WidgetStatePropertyAll(RoundedRectangleBorder(
+        borderRadius: BorderRadius.zero,
       )),
       foregroundColor: hover.isTrue
           ? themeC.dark.isTrue
-              ? MaterialStateProperty.all(accentTextDark)
-              : MaterialStateProperty.all(accentTextLight)
-          : MaterialStateProperty.all(
+              ? const WidgetStatePropertyAll(accentTextDark)
+              : const WidgetStatePropertyAll(accentTextLight)
+          : WidgetStatePropertyAll(
               Theme.of(context).textTheme.titleSmall?.color),
-      textStyle: MaterialStateProperty.all(theme.textTheme.titleSmall),
+      textStyle: WidgetStatePropertyAll(theme.textTheme.titleSmall),
       overlayColor: themeC.dark.isTrue
-          ? MaterialStateProperty.all(primaryColor.withOpacity(0.3))
-          : MaterialStateProperty.all(primaryColor.withOpacity(0.1)),
+          ? WidgetStatePropertyAll(primaryColor.withOpacity(0.3))
+          : WidgetStatePropertyAll(primaryColor.withOpacity(0.1)),
     );
   }
 }

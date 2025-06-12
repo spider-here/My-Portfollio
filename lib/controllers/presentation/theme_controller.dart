@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../creatives/colors.dart';
+import '../../presentation/creatives/app_colors.dart';
 
 class ThemeController extends GetxController{
 
@@ -13,15 +13,18 @@ class ThemeController extends GetxController{
     primarySwatch: primarySwatch,
     accentColor: accentColor,
     backgroundColor: backgroundLight,
+    cardColor: backgroundLight,
   ),
       textTheme: TextTheme(
         headlineLarge: GoogleFonts.montserrat(fontSize: 36.0, fontWeight: FontWeight.bold, color: primaryTextLight),
         headlineMedium: GoogleFonts.montserrat(fontSize: 24.0, fontWeight: FontWeight.bold, color: accentTextLight),
         headlineSmall: GoogleFonts.montserrat(fontSize: 20.0, fontWeight: FontWeight.bold, color: primaryTextLight),
+        titleMedium: GoogleFonts.montserrat(fontSize: 16.0, fontWeight: FontWeight.bold, color: primaryTextLight),
         titleSmall: GoogleFonts.montserrat(fontSize: 14.0, fontWeight: FontWeight.bold, color: primaryTextLight),
         bodyLarge: GoogleFonts.montserrat(fontSize: 16.0, color: primaryTextLight),
         bodyMedium: GoogleFonts.montserrat(fontSize: 14.0, color: secondaryTextLight),
         bodySmall: GoogleFonts.montserrat(fontSize: 12.0, color: secondaryTextLight),
+        labelLarge: GoogleFonts.montserrat()
       )
   );
 
@@ -29,16 +32,19 @@ class ThemeController extends GetxController{
     brightness: Brightness.dark,
     primarySwatch: primarySwatch,
     accentColor: accentColor,
-    backgroundColor: backgroundDark
+    backgroundColor: backgroundDark,
+    cardColor: backgroundDark,
   ),
       textTheme: TextTheme(
         headlineLarge: GoogleFonts.montserrat(fontSize: 36.0, fontWeight: FontWeight.bold, color: primaryTextDark),
         headlineMedium: GoogleFonts.montserrat(fontSize: 24.0, fontWeight: FontWeight.bold, color: accentTextDark),
         headlineSmall: GoogleFonts.montserrat(fontSize: 20.0, fontWeight: FontWeight.bold, color: primaryTextDark),
+          titleMedium: GoogleFonts.montserrat(fontSize: 16.0, fontWeight: FontWeight.bold, color: primaryTextDark),
         titleSmall: GoogleFonts.montserrat(fontSize: 14.0, fontWeight: FontWeight.bold, color: primaryTextDark),
         bodyLarge: GoogleFonts.montserrat(fontSize: 16.0, color: primaryTextDark),
         bodyMedium: GoogleFonts.montserrat(fontSize: 14.0, color: secondaryTextDark),
         bodySmall: GoogleFonts.montserrat(fontSize: 12.0, color: secondaryTextDark),
+          labelLarge: GoogleFonts.montserrat()
       )
   );
 

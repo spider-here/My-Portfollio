@@ -38,6 +38,18 @@ dependencies:
   get: ^4.6.6
   flutter_svg: ^2.0.9
   google_fonts: ^6.1.0
+  firebase_core: ^2.25.4
+  cloud_firestore: ^4.15.4
+  intl: ^0.19.0
+  flutter_spinkit: ^5.2.0
+  animated_text_kit: ^4.2.2
+  random_text_reveal: ^0.0.7
+  typewritertext: ^2.3.1
+  http: ^1.2.0
+  flip_card: ^0.7.0
+  flutter_bloc: ^8.1.6
+  timelines_plus: ^1.0.6
+  web: ^1.1.1
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +76,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/icons/
+    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
