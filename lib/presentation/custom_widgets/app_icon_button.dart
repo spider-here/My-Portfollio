@@ -36,7 +36,7 @@ class AppIconButton extends StatelessWidget {
 
     return ButtonStyle(
       shape: const WidgetStatePropertyAll(RoundedRectangleBorder(
-        borderRadius: BorderRadius.zero,
+
       )),
       foregroundColor: hover.isTrue
           ? themeC.dark.isTrue

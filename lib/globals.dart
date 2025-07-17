@@ -6,9 +6,9 @@ class Globals{
   Globals._();
 
   static String timestampToString(Timestamp timestamp) {
-    DateTime dateTime = timestamp.toDate();
-    String month = DateFormat('MMM').format(dateTime);
-    String year = DateFormat('yyyy').format(dateTime);
+    final DateTime dateTime = timestamp.toDate();
+    final String month = DateFormat('MMM').format(dateTime);
+    final String year = DateFormat('yyyy').format(dateTime);
 
     return '$month, $year';
   }

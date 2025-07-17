@@ -6,7 +6,7 @@ import 'package:zakwan_ali_portfolio/controllers/presentation/pages_controller.d
 import 'package:zakwan_ali_portfolio/controllers/presentation/theme_controller.dart';
 import '../../../creatives/app_colors.dart';
 import '../../../custom_widgets/app_elevated_button.dart';
-import '../../../custom_widgets/defaultPageBody.dart';
+import '../../../custom_widgets/default_page_body.dart';
 import '../../../custom_widgets/scroll_widget.dart';
 
 class DHome extends StatelessWidget {
@@ -17,7 +17,7 @@ class DHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.fromLTRB(100.0, 50.0, 100.0, 0.0),
@@ -99,16 +99,14 @@ class DHome extends StatelessWidget {
                         ],
                       )),
                   ScrollWidget(
-                    onClick: () {
-                      pagesC.nextPage();
-                    },
+                    onClick: pagesC.nextPage,
                     scrollDown: true,
                   )
                 ],
               ),
             ),
             const Spacer(),
-            Image.asset('images/portrait.png'),
+            // Image.asset('images/portrait.png'),
           ],
         )
       ),

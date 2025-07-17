@@ -36,7 +36,7 @@ class TabButton extends StatelessWidget {
 
     return ButtonStyle(
       shape: const WidgetStatePropertyAll(RoundedRectangleBorder(
-        borderRadius: BorderRadius.zero,
+
       )),
       foregroundColor: _getForegroundColor(context, isSelected),
       textStyle: WidgetStatePropertyAll(theme.textTheme.titleSmall),
@@ -46,7 +46,7 @@ class TabButton extends StatelessWidget {
     );
   }
 
-  MaterialStateProperty<Color?> _getForegroundColor(BuildContext context, bool isSelected) {
+  WidgetStateProperty<Color?> _getForegroundColor(BuildContext context, bool isSelected) {
     if (isSelected || hover.isTrue) {
       return themeC.dark.isTrue
           ? const WidgetStatePropertyAll(accentTextDark)

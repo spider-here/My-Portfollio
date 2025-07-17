@@ -9,7 +9,6 @@ class ThemeController extends GetxController{
   RxBool dark = false.obs;
 
   final ThemeData lightTheme = ThemeData.from(colorScheme: ColorScheme.fromSwatch(
-    brightness: Brightness.light,
     primarySwatch: primarySwatch,
     accentColor: accentColor,
     backgroundColor: backgroundLight,

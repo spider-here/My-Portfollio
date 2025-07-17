@@ -11,11 +11,11 @@ class PortfolioItem extends StatelessWidget{
     return FlipCard(
       front: const Card(elevation: 2.0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.zero,
+
         ),),
       back: Card(elevation: 2.0,
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.zero,
+
         ),
       child: Container(
         decoration: const BoxDecoration(
@@ -28,7 +28,6 @@ class PortfolioItem extends StatelessWidget{
         padding: const EdgeInsets.all(10.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Text(
               'Flutter simplifies mobile app development by offering a unified development platform for both Android and iOS. Its streamlined workflow and intuitive UI framework empowers to build visually stunning and feature-rich applications. Let\'s craft your next mobile app together and bring your ideas to life!',
@@ -44,6 +43,7 @@ class PortfolioItem extends StatelessWidget{
               children: [
                 InkWell(
                   borderRadius: BorderRadius.zero,
+                  onTap: flipCardController.toggleCard,
                   child: Padding(
                     padding: const EdgeInsets.all(2.0),
                     child: Icon(
@@ -52,9 +52,6 @@ class PortfolioItem extends StatelessWidget{
                       size: 10.0,
                     ),
                   ),
-                  onTap: () {
-                    flipCardController.toggleCard();
-                  },
                 ),
                 InkWell(
                   onTap: () {},

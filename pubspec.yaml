@@ -50,6 +50,7 @@ dependencies:
   flutter_bloc: ^8.1.6
   timelines_plus: ^1.0.6
   web: ^1.1.1
+  flutter_neumorphic_plus: ^3.4.0
 
 dev_dependencies:
   flutter_test:

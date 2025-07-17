@@ -12,7 +12,7 @@ class Wrapper extends StatelessWidget{
         return DNavigation();
       }
       else{
-        return MNavigation();
+        return const MNavigation();
       }
     });
   }

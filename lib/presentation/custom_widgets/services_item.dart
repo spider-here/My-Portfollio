@@ -33,7 +33,7 @@ class ServicesItem extends StatelessWidget {
       controller: flipCardController,
       front: Card(
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.zero,
+
         ),
         elevation: 2.0,
         child: Container(
@@ -93,9 +93,7 @@ class ServicesItem extends StatelessWidget {
                           Icons.arrow_forward_ios_rounded,
                           color: Theme.of(context).textTheme.bodyMedium?.color,
                         ),
-                        onClick: () {
-                          flipCardController.toggleCard();
-                        },
+                        onClick: flipCardController.toggleCard,
                       )),
                 ],
               ),
@@ -105,7 +103,7 @@ class ServicesItem extends StatelessWidget {
       ),
       back: Card(
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.zero,
+
         ),
         elevation: 2.0,
         child: Container(
@@ -118,7 +116,6 @@ class ServicesItem extends StatelessWidget {
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
                 padding: const EdgeInsets.all(50.0),
@@ -140,9 +137,7 @@ class ServicesItem extends StatelessWidget {
                         Icons.arrow_back_ios_rounded,
                         color: Theme.of(context).textTheme.bodyMedium?.color,
                       ),
-                      onClick: () {
-                        flipCardController.toggleCard();
-                      },
+                      onClick: flipCardController.toggleCard,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(right: 10.0),

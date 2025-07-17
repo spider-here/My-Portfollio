@@ -1,5 +1,4 @@
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:zakwan_ali_portfolio/presentation/pages/desktop/about/tab_views/qualifications_view.dart';
@@ -9,9 +8,9 @@ import '../../../../controllers/presentation/theme_controller.dart';
 import '../../../../globals.dart';
 import '../../../creatives/app_colors.dart';
 import '../../../custom_widgets/app_elevated_button.dart';
-import '../../../custom_widgets/defaultPageBody.dart';
-import '../../../custom_widgets/defaultPageScaffold.dart';
-import '../../../custom_widgets/pageTitle.dart';
+import '../../../custom_widgets/default_page_body.dart';
+import '../../../custom_widgets/default_page_scaffold.dart';
+import '../../../custom_widgets/page_title.dart';
 import '../../../custom_widgets/scroll_widget.dart';
 
 class DAbout extends StatelessWidget {
@@ -22,7 +21,7 @@ class DAbout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size;
     return DefaultPageScaffold(
       body: DefaultPageBody(
         children: [const Padding(padding: EdgeInsets.only(left: 50.0)),
@@ -47,9 +46,7 @@ class DAbout extends StatelessWidget {
                   textAlign: TextAlign.justify,
                 ),
                 ScrollWidget(
-                  onClick: () {
-                    pagesC.nextPage();
-                  },
+                  onClick: pagesC.nextPage,
                   scrollDown: true,
                 )
               ],
@@ -62,7 +59,6 @@ class DAbout extends StatelessWidget {
             child: DefaultTabController(
               length: 2,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   SizedBox(

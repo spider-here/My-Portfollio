@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../controllers/presentation/pages_controller.dart';
 import '../../../../controllers/presentation/theme_controller.dart';
-import '../../../custom_widgets/defaultPageBody.dart';
-import '../../../custom_widgets/defaultPageScaffold.dart';
-import '../../../custom_widgets/pageTitle.dart';
+import '../../../custom_widgets/default_page_body.dart';
+import '../../../custom_widgets/default_page_scaffold.dart';
+import '../../../custom_widgets/page_title.dart';
 import '../../../custom_widgets/scroll_widget.dart';
 import '../../../custom_widgets/services_item.dart';
 
@@ -17,7 +17,6 @@ class DServices extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     return DefaultPageScaffold(
       body: DefaultPageBody(
         children: [
@@ -65,9 +64,7 @@ class DServices extends StatelessWidget {
                     padding: EdgeInsets.only(top: 50.0),
                   ),
                   ScrollWidget(
-                    onClick: () {
-                      pagesC.nextPage();
-                    },
+                    onClick: pagesC.nextPage,
                     scrollDown: true,
                   ),
                 ],

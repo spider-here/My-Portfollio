@@ -10,7 +10,6 @@ class ScrollWidget extends StatelessWidget{
       onTap: onClick,
       borderRadius: BorderRadius.circular(15.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(Icons.mouse_outlined, size: 16.0, color: Theme.of(context).textTheme.bodySmall?.color,),
