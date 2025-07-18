@@ -7,7 +7,6 @@ import '../../../../controllers/presentation/pages_controller.dart';
 import '../../../custom_widgets/default_page_body.dart';
 import '../../../custom_widgets/default_page_scaffold.dart';
 import '../../../custom_widgets/page_title.dart';
-import '../../../custom_widgets/scroll_widget.dart';
 
 class DContact extends StatelessWidget {
   final PagesController _pagesC = Get.find<PagesController>();
