@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:zakwan_ali_portfolio/presentation/pages/desktop/about/tab_views/qualifications_view.dart';
 import 'package:zakwan_ali_portfolio/presentation/pages/desktop/about/tab_views/work_view.dart';
 import '../../../../controllers/presentation/pages_controller.dart';
-import '../../../../controllers/presentation/theme_controller.dart';
+import '../../../creatives/app_theme.dart';
 import '../../../../globals.dart';
 import '../../../creatives/app_colors.dart';
 import '../../../custom_widgets/app_elevated_button.dart';
@@ -14,7 +14,6 @@ import '../../../custom_widgets/page_title.dart';
 import '../../../custom_widgets/scroll_widget.dart';
 
 class DAbout extends StatelessWidget {
-  final ThemeController themeC = Get.find<ThemeController>();
   final PagesController pagesC = Get.find<PagesController>();
 
   DAbout({super.key});
@@ -45,10 +44,6 @@ class DAbout extends StatelessWidget {
                     ' collaborative environments where I can apply and refine my skills to drive impactful solutions.',
                   textAlign: TextAlign.justify,
                 ),
-                ScrollWidget(
-                  onClick: pagesC.nextPage,
-                  scrollDown: true,
-                )
               ],
             ),
           ),
@@ -68,9 +63,9 @@ class DAbout extends StatelessWidget {
                       dividerHeight: 0.0,
                       splashBorderRadius: BorderRadius.zero,
                       indicatorColor:
-                      Theme.of(context).textTheme.headlineMedium?.color,
+                      context.textTheme.headlineMedium?.color,
                       labelColor:
-                      Theme.of(context).textTheme.headlineMedium?.color,
+                      context.textTheme.headlineMedium?.color,
                       tabs: [
                         Tab(
                           height: 30.0,
@@ -85,7 +80,7 @@ class DAbout extends StatelessWidget {
                               Text(
                                 'Work',
                                 style: TextStyle(
-                                    fontSize: Theme.of(context)
+                                    fontSize: context
                                         .textTheme
                                         .bodySmall
                                         ?.fontSize),
@@ -106,7 +101,7 @@ class DAbout extends StatelessWidget {
                               Text(
                                 'Qualification',
                                 style: TextStyle(
-                                    fontSize: Theme.of(context)
+                                    fontSize: context
                                         .textTheme
                                         .bodySmall
                                         ?.fontSize),
@@ -142,7 +137,7 @@ class DAbout extends StatelessWidget {
                           const Padding(padding: EdgeInsets.only(left: 10.0)),
                           Text(
                             'Download Resume',
-                            style: Theme.of(context)
+                            style: context
                                 .textTheme
                                 .bodySmall
                                 ?.copyWith(

@@ -1,6 +1,7 @@
 import 'package:flip_card/flip_card.dart';
 import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:zakwan_ali_portfolio/utils/extensions/context_theme.dart';
 
 class PortfolioItem extends StatelessWidget{
   final FlipCardController flipCardController = FlipCardController();
@@ -48,7 +49,7 @@ class PortfolioItem extends StatelessWidget{
                     padding: const EdgeInsets.all(2.0),
                     child: Icon(
                       Icons.arrow_back_ios_rounded,
-                      color: Theme.of(context).textTheme.bodyMedium?.color,
+                      color: context.appTextTheme.bodyMedium?.color,
                       size: 10.0,
                     ),
                   ),
@@ -60,7 +61,7 @@ class PortfolioItem extends StatelessWidget{
                     padding: const EdgeInsets.all(2.0),
                     child: Text(
                       'View more',
-                      style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                      style: context.appTextTheme.headlineMedium?.copyWith(
                           fontSize: 10.0
                       ),
                     ),

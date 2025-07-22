@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../controllers/presentation/theme_controller.dart';
+import '../creatives/app_theme.dart';
 import '../creatives/app_colors.dart';
 
 class AppIconButton extends StatelessWidget {
   final Widget icon;
   final VoidCallback onClick;
-  final ThemeController themeC = Get.find<ThemeController>();
   final RxBool hover = false.obs;
 
   AppIconButton({super.key, required this.onClick, required this.icon});
@@ -25,29 +24,28 @@ class AppIconButton extends StatelessWidget {
           onPressed: onClick,
           icon: icon,
           style: _themeModeStyle(context),
-          hoverColor: themeC.dark.isTrue ? accentTextDark : accentTextLight,
+          hoverColor: Get.isDarkMode ? accentTextDark : accentTextLight,
         ),
       ),
     );
   }
 
   ButtonStyle _themeModeStyle(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
 
     return ButtonStyle(
       shape: const WidgetStatePropertyAll(RoundedRectangleBorder(
 
       )),
       foregroundColor: hover.isTrue
-          ? themeC.dark.isTrue
+          ? Get.isDarkMode
               ? const WidgetStatePropertyAll(accentTextDark)
               : const WidgetStatePropertyAll(accentTextLight)
           : WidgetStatePropertyAll(
-              Theme.of(context).textTheme.titleSmall?.color),
-      textStyle: WidgetStatePropertyAll(theme.textTheme.titleSmall),
-      overlayColor: themeC.dark.isTrue
-          ? WidgetStatePropertyAll(primaryColor.withOpacity(0.3))
-          : WidgetStatePropertyAll(primaryColor.withOpacity(0.1)),
+              context.textTheme.titleSmall?.color),
+      textStyle: WidgetStatePropertyAll(context.textTheme.titleSmall),
+      overlayColor: Get.isDarkMode
+          ? WidgetStatePropertyAll(primaryColor.withAlpha(77))
+          : WidgetStatePropertyAll(primaryColor.withAlpha(26)),
     );
   }
 }

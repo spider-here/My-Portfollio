@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../controllers/presentation/theme_controller.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_utils/src/extensions/context_extensions.dart';
+import '../creatives/app_theme.dart';
 import '../creatives/app_colors.dart';
 
 class TabButton extends StatelessWidget {
@@ -8,7 +10,6 @@ class TabButton extends StatelessWidget {
   final VoidCallback onClick;
   final int index;
   final RxInt selectedIndex;
-  final ThemeController themeC = Get.find<ThemeController>();
   final RxBool hover = false.obs;
 
   TabButton({super.key,
@@ -32,27 +33,26 @@ class TabButton extends StatelessWidget {
 
   ButtonStyle _tabButtonStyle(BuildContext context) {
     final bool isSelected = index == selectedIndex.value;
-    final ThemeData theme = Theme.of(context);
 
     return ButtonStyle(
       shape: const WidgetStatePropertyAll(RoundedRectangleBorder(
 
       )),
       foregroundColor: _getForegroundColor(context, isSelected),
-      textStyle: WidgetStatePropertyAll(theme.textTheme.titleSmall),
-      overlayColor: themeC.dark.isTrue
-          ? WidgetStatePropertyAll(primaryColor.withOpacity(0.3))
-          : WidgetStatePropertyAll(primaryColor.withOpacity(0.1)),
+      textStyle: WidgetStatePropertyAll(context.textTheme.titleSmall),
+      overlayColor: Get.isDarkMode
+          ? WidgetStatePropertyAll(primaryColor.withAlpha(77))
+          : WidgetStatePropertyAll(primaryColor.withAlpha(26)),
     );
   }
 
   WidgetStateProperty<Color?> _getForegroundColor(BuildContext context, bool isSelected) {
     if (isSelected || hover.isTrue) {
-      return themeC.dark.isTrue
+      return Get.isDarkMode
           ? const WidgetStatePropertyAll(accentTextDark)
           : const WidgetStatePropertyAll(accentTextLight);
     } else {
-      return WidgetStatePropertyAll(Theme.of(context).textTheme.titleSmall?.color);
+      return WidgetStatePropertyAll(context.textTheme.titleSmall?.color);
     }
   }
 }

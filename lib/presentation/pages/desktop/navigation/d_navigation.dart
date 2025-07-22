@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:get/state_manager.dart';
-import 'package:zakwan_ali_portfolio/controllers/presentation/theme_controller.dart';
-
+import 'package:zakwan_ali_portfolio/presentation/creatives/app_theme.dart';
+import 'package:zakwan_ali_portfolio/presentation/custom_widgets/space_box.dart';
+import 'package:zakwan_ali_portfolio/utils/extensions/context_theme.dart';
+import 'package:zakwan_ali_portfolio/utils/extensions/responsive_context.dart';
 import '../../../../controllers/presentation/pages_controller.dart';
 import '../../../custom_widgets/app_icon_button.dart';
+import '../../../custom_widgets/scroll_widget.dart';
 import '../../../custom_widgets/tab_button.dart';
 import '../about/d_about.dart';
 import '../contact/d_contact.dart';
@@ -13,7 +17,6 @@ import '../portfolio/d_portfolio.dart';
 import '../services/d_services.dart';
 
 class DNavigation extends StatelessWidget {
-  final ThemeController themeC = Get.find<ThemeController>();
   final PagesController pagesC = Get.find<PagesController>();
   final List<Widget> pages = [
     DHome(),
@@ -32,25 +35,25 @@ class DNavigation extends StatelessWidget {
         extendBodyBehindAppBar: true,
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(
-            pagesC.currentPageIndex > 0 ? 50.0 : 100.0,
+            pagesC.currentPageIndex > 0 ? context.heightFromDesign(50.0) : context.heightFromDesign(100.0),
           ),
           child: TweenAnimationBuilder<double>(
             duration: const Duration(milliseconds: 300),
             tween: Tween<double>(
-              begin: 100.0,
-              end: pagesC.currentPageIndex > 0 ? 50.0 : 100.0,
+              begin: context.heightFromDesign(100.0),
+              end: pagesC.currentPageIndex > 0 ? context.heightFromDesign(50.0) : context.heightFromDesign(100.0),
             ),
             builder: (context, height, child) {
               return AppBar(
                 toolbarHeight: height,
-                backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                backgroundColor: context.appTheme.scaffoldBackgroundColor,
                 surfaceTintColor: Colors.transparent,
                 elevation: 0.0,
-                title: const Padding(
-                  padding: EdgeInsets.only(left: 100.0),
-                  child: Text('Flutter Developer'),
+                title: Padding(
+                  padding: context.designInsetOnly(left: 100.0),
+                  child: const Text('Flutter Developer'),
                 ),
-                titleTextStyle: Theme.of(context).textTheme.titleSmall,
+                titleTextStyle: context.textTheme.titleSmall,
                 bottom: PreferredSize(
                   preferredSize: const Size.fromHeight(0.8),
                   child: pagesC.currentPageIndex > 0
@@ -89,28 +92,40 @@ class DNavigation extends StatelessWidget {
                     selectedIndex: pagesC.currentPageIndex,
                   ),
                   AppIconButton(
-                    onClick: themeC.changeTheme,
-                    icon: themeC.dark.isTrue
+                    onClick: AppTheme.changeTheme,
+                    icon: Get.isDarkMode
                         ? const Icon(Icons.wb_sunny_outlined)
                         : const Icon(Icons.nightlight_outlined),
                   ),
-                  const Padding(padding: EdgeInsets.only(right: 100.0)),
+                  const SpaceBox.horizontal(space: 100.0)
                 ],
               );
             },
           ),
         ),
-        body: Scrollbar(
-          controller: pagesC.pageController,
-          child: PageView(
-            controller: pagesC.pageController,
-            scrollDirection: Axis.vertical,
-            pageSnapping: true,
-            children: pages,
-            onPageChanged: (index) {
-              pagesC.currentPageIndex.value = index;
-            },
-          ),
+        body: Stack(
+          children: [
+            Scrollbar(
+              controller: pagesC.pageController,
+              child: PageView(
+                controller: pagesC.pageController,
+                scrollDirection: Axis.vertical,
+                pageSnapping: false,
+                children: pages,
+                onPageChanged: (index) {
+                  pagesC.currentPageIndex.value = index;
+                },
+              ),
+            ),
+            Positioned(
+              bottom: context.heightFromDesign(50.0),
+              left: context.widthFromDesign(100.0),
+              right: 0,
+              child: ScrollWidget(
+                onClick: pagesC.nextPage,
+                scrollDown: true,
+              ))
+          ],
         ),
       ),
     );

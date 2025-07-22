@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:timelines_plus/timelines_plus.dart';
 import 'package:zakwan_ali_portfolio/presentation/pages/desktop/about/widgets/timeline_content_item.dart';
 import 'package:zakwan_ali_portfolio/presentation/pages/desktop/about/widgets/timeline_date_item.dart';
+import 'package:zakwan_ali_portfolio/utils/extensions/context_theme.dart';
 
 
 class QualificationsView extends StatelessWidget {
@@ -18,7 +19,7 @@ class QualificationsView extends StatelessWidget {
         builder: (context, snapshot) {
           return Timeline.tileBuilder(
               theme: TimelineThemeData(
-                color: Theme.of(context).colorScheme.primary,
+                color: context.appTheme.colorScheme.primary,
               ),
               shrinkWrap: true,
               builder: TimelineTileBuilder.fromStyle(

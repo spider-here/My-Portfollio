@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:zakwan_ali_portfolio/controllers/presentation/theme_controller.dart';
+import 'package:zakwan_ali_portfolio/presentation/creatives/app_theme.dart';
 
 import '../creatives/app_colors.dart';
 
@@ -8,7 +8,6 @@ import '../creatives/app_colors.dart';
 class AppElevatedButton extends StatelessWidget{
   final VoidCallback onClick;
   final Widget child;
-  final ThemeController themeC = Get.find<ThemeController>();
   final Rx<LinearGradient> darkGradient = LinearGradient(colors: [primarySwatch.shade300, primarySwatch.shade600]).obs;
   final Rx<LinearGradient> lightGradient = LinearGradient(colors: [primarySwatch.shade600, primarySwatch.shade300]).obs;
   AppElevatedButton({super.key, required this.onClick, required this.child});
@@ -21,10 +20,10 @@ class AppElevatedButton extends StatelessWidget{
       child: InkWell(
         onTap: onClick,
         onHover: (hover){
-          if(hover && themeC.dark.isTrue){
+          if(hover && Get.isDarkMode){
             darkGradient.value = LinearGradient(colors: [primarySwatch.shade300, primarySwatch.shade200, primarySwatch.shade100]);
           }
-          else if(hover && themeC.dark.isFalse){
+          else if(hover && !Get.isDarkMode){
             lightGradient.value = LinearGradient(colors: [primarySwatch.shade400, primarySwatch.shade500, primarySwatch.shade600]);
           }
           else{
@@ -36,7 +35,7 @@ class AppElevatedButton extends StatelessWidget{
         child: Obx(
           ()=> Container(
             decoration: BoxDecoration(
-              gradient: themeC.dark.isTrue ? darkGradient.value : lightGradient.value
+              gradient: Get.isDarkMode ? darkGradient.value : lightGradient.value
             ),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10.0),

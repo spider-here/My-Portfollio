@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../controllers/presentation/pages_controller.dart';
-import '../../../../controllers/presentation/theme_controller.dart';
 import '../../../custom_widgets/default_page_body.dart';
 import '../../../custom_widgets/default_page_scaffold.dart';
 import '../../../custom_widgets/page_title.dart';
@@ -10,7 +9,6 @@ import '../../../custom_widgets/scroll_widget.dart';
 import '../../../custom_widgets/services_item.dart';
 
 class DServices extends StatelessWidget {
-  final ThemeController themeC = Get.find<ThemeController>();
   final PagesController pagesC = Get.find<PagesController>();
 
   DServices({super.key});
@@ -62,10 +60,6 @@ class DServices extends StatelessWidget {
                   ),
                   const Padding(
                     padding: EdgeInsets.only(top: 50.0),
-                  ),
-                  ScrollWidget(
-                    onClick: pagesC.nextPage,
-                    scrollDown: true,
                   ),
                 ],
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/src/extensions/context_extensions.dart';
 
 class TimelineContentItem extends StatelessWidget {
   final String title;
@@ -16,15 +17,15 @@ class TimelineContentItem extends StatelessWidget {
         children: [
           Text(
             title,
-            style: Theme.of(context).textTheme.titleSmall,
+            style: context.textTheme.titleSmall,
           ),
           Text(
             subtitle,
-            style: Theme.of(context).textTheme.bodyMedium,
+            style: context.textTheme.bodyMedium,
           ),
           Text(
             description,
-            style: Theme.of(context).textTheme.bodySmall,
+            style: context.textTheme.bodySmall,
           ),
         ],
       ),

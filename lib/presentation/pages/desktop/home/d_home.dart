@@ -3,35 +3,35 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:typewritertext/typewritertext.dart';
 import 'package:zakwan_ali_portfolio/controllers/presentation/pages_controller.dart';
-import 'package:zakwan_ali_portfolio/controllers/presentation/theme_controller.dart';
+import 'package:zakwan_ali_portfolio/presentation/creatives/app_theme.dart';
+import 'package:zakwan_ali_portfolio/utils/extensions/responsive_context.dart';
 import '../../../creatives/app_colors.dart';
 import '../../../custom_widgets/app_elevated_button.dart';
 import '../../../custom_widgets/default_page_body.dart';
 import '../../../custom_widgets/scroll_widget.dart';
+import '../../../custom_widgets/space_box.dart';
 
 class DHome extends StatelessWidget {
-  final ThemeController themeC = Get.find<ThemeController>();
   final PagesController pagesC = Get.find<PagesController>();
 
   DHome({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(100.0, 50.0, 100.0, 0.0),
+        padding: context.designInsetLTRB(100.0, 50.0, 100.0, 0.0),
         child: DefaultPageBody(
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 50.0, top: 100.0),
+              padding: context.designInsetOnly(left: 50.0, top: 100.0),
               child: Column(
                 // mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    width: size.width / 3,
+                    width: context.width / 3,
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -40,9 +40,7 @@ class DHome extends StatelessWidget {
                         TypeWriterText(
                           text: Text(
                             'Hi, I\'m Zakwan',
-                            style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                                fontSize: 38.0
-                            ),
+                            style: context.textTheme.headlineLarge,
                             textAlign: TextAlign.start,
                           ),
                           duration: const Duration(
@@ -50,23 +48,17 @@ class DHome extends StatelessWidget {
                         ),
                         Text(
                           'Crafting Seamless Experiences with',
-                          style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                              fontSize: 22.0
-                          ),
+                          style: context.textTheme.headlineSmall,
                           textAlign: TextAlign.start,
                         ),
                         Text(
                           'Flutter Magic.',
-                          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                              fontSize: 26.0
-                          ),
+                          style: context.textTheme.headlineMedium,
                           textAlign: TextAlign.start,
                         ),
                         Text(
                           'Experienced Flutter developer with a strong background in web and mobile app development. Committed to continuous learning and dedicated to delivering quality work.',
-                          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              fontSize: 16.0
-                          ),
+                          style: context.textTheme.bodyMedium,
                           textAlign: TextAlign.start,
                           maxLines: 10,
                         ),
@@ -83,14 +75,14 @@ class DHome extends StatelessWidget {
                         children: [
                           Text(
                             'Contact me',
-                            style: Theme.of(context)
+                            style: context
                                 .textTheme
                                 .bodySmall
                                 ?.copyWith(
                                 color: primaryTextDark,
                                 fontWeight: FontWeight.bold),
                           ),
-                          const Padding(padding: EdgeInsets.only(left: 10.0)),
+                          const SpaceBox.horizontal(space: 10.0),
                           Icon(
                             Icons.send_outlined,
                             size: 14.0,
@@ -98,15 +90,11 @@ class DHome extends StatelessWidget {
                           )
                         ],
                       )),
-                  ScrollWidget(
-                    onClick: pagesC.nextPage,
-                    scrollDown: true,
-                  )
                 ],
               ),
             ),
             const Spacer(),
-            // Image.asset('images/portrait.png'),
+            Image.asset('images/portrait.png', width: context.widthFromDesign(600.0), height: context.heightFromDesign(850.0),),
           ],
         )
       ),

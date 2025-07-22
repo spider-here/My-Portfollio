@@ -2,10 +2,11 @@ import 'package:flip_card/flip_card.dart';
 import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:zakwan_ali_portfolio/controllers/presentation/pages_controller.dart';
 
-import '../../controllers/presentation/theme_controller.dart';
+import '../creatives/app_theme.dart';
 import '../creatives/app_colors.dart';
 import 'app_icon_button.dart';
 
@@ -16,7 +17,6 @@ class ServicesItem extends StatelessWidget {
   final String info;
   final FlipCardController flipCardController = FlipCardController();
   final ImageProvider image;
-  final ThemeController themeC = Get.find<ThemeController>();
   final PagesController pagesC = Get.find<PagesController>();
 
   ServicesItem({
@@ -39,7 +39,7 @@ class ServicesItem extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(
-            colors: themeC.dark.isTrue
+            colors: Get.isDarkMode
                 ? [
                     primarySwatch.shade300,
                     primarySwatch.shade600,
@@ -73,14 +73,14 @@ class ServicesItem extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 5.0),
                 child: Text(
                   title,
-                  style: Theme.of(context).textTheme.titleSmall,
+                  style: context.textTheme.titleSmall,
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Text(
                   subtitle,
-                  style: Theme.of(context).textTheme.bodyMedium,
+                  style: context.textTheme.bodyMedium,
                 ),
               ),
               Row(
@@ -91,7 +91,7 @@ class ServicesItem extends StatelessWidget {
                       child: AppIconButton(
                         icon: Icon(
                           Icons.arrow_forward_ios_rounded,
-                          color: Theme.of(context).textTheme.bodyMedium?.color,
+                          color: context.textTheme.bodyMedium?.color,
                         ),
                         onClick: flipCardController.toggleCard,
                       )),
@@ -122,7 +122,7 @@ class ServicesItem extends StatelessWidget {
                 child: Text(
                   info,
                   textAlign: TextAlign.justify,
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  style: context.textTheme.bodyMedium?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                 ),
@@ -135,7 +135,7 @@ class ServicesItem extends StatelessWidget {
                     AppIconButton(
                       icon: Icon(
                         Icons.arrow_back_ios_rounded,
-                        color: Theme.of(context).textTheme.bodyMedium?.color,
+                        color: context.textTheme.bodyMedium?.color,
                       ),
                       onClick: flipCardController.toggleCard,
                     ),
