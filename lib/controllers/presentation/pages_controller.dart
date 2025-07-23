@@ -6,7 +6,7 @@ class PagesController extends GetxController{
   final RxInt currentPageIndex = 0.obs;
 
   void pageJump(index) {
-    pageController.animateToPage(index, duration: Durations.medium4, curve: Curves.decelerate);
+    pageController.animateToPage(index, duration: Durations.long1, curve: Curves.decelerate);
     currentPageIndex.value = index;
   }
 

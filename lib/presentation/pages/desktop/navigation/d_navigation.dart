@@ -31,17 +31,21 @@ class DNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(
-          () => Scaffold(
+      () => Scaffold(
         extendBodyBehindAppBar: true,
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(
-            pagesC.currentPageIndex > 0 ? context.heightFromDesign(50.0) : context.heightFromDesign(100.0),
+            pagesC.currentPageIndex > 0
+                ? context.heightFromDesign(50.0)
+                : context.heightFromDesign(100.0),
           ),
           child: TweenAnimationBuilder<double>(
             duration: const Duration(milliseconds: 300),
             tween: Tween<double>(
               begin: context.heightFromDesign(100.0),
-              end: pagesC.currentPageIndex > 0 ? context.heightFromDesign(50.0) : context.heightFromDesign(100.0),
+              end: pagesC.currentPageIndex > 0
+                  ? context.heightFromDesign(50.0)
+                  : context.heightFromDesign(100.0),
             ),
             builder: (context, height, child) {
               return AppBar(
@@ -57,7 +61,8 @@ class DNavigation extends StatelessWidget {
                 bottom: PreferredSize(
                   preferredSize: const Size.fromHeight(0.8),
                   child: pagesC.currentPageIndex > 0
-                      ? const Divider(color: Colors.grey, thickness: 0.2, height: 0.8)
+                      ? const Divider(
+                          color: Colors.grey, thickness: 0.2, height: 0.8)
                       : const SizedBox(),
                 ),
                 actions: [
@@ -117,19 +122,27 @@ class DNavigation extends StatelessWidget {
                 },
               ),
             ),
-            Positioned(
-              bottom: context.heightFromDesign(50.0),
-              left: context.widthFromDesign(100.0),
-              right: 0,
-              child: ScrollWidget(
-                onClick: pagesC.nextPage,
-                scrollDown: true,
-              ))
+            Align(
+                alignment: FractionalOffset.bottomLeft,
+                child: Visibility(
+                  visible: pagesC.currentPageIndex.value != 4,
+                  child: ScrollWidget(
+                    onClick: pagesC.nextPage,
+                    scrollDown: true,
+                  ),
+                )),
+            Align(
+                alignment: FractionalOffset.topRight,
+                child: Visibility(
+                  visible: pagesC.currentPageIndex.value == 4,
+                  child: ScrollWidget(
+                    onClick: () => pagesC.pageJump(0),
+                    scrollDown: false,
+                  ),
+                )),
           ],
         ),
       ),
     );
   }
 }
-
-

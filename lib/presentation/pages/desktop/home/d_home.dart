@@ -94,7 +94,7 @@ class DHome extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            Image.asset('images/portrait.png', width: context.widthFromDesign(600.0), height: context.heightFromDesign(850.0),),
+            // Image.asset('images/portrait.png', width: context.widthFromDesign(600.0), height: context.heightFromDesign(850.0),),
           ],
         )
       ),

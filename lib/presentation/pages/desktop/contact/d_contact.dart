@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:zakwan_ali_portfolio/presentation/custom_widgets/app_text_area.dart';
 import 'package:zakwan_ali_portfolio/presentation/custom_widgets/app_text_field.dart';
 import '../../../../controllers/presentation/contact_controller.dart';
 import '../../../../controllers/presentation/pages_controller.dart';
@@ -11,6 +12,7 @@ import '../../../custom_widgets/page_title.dart';
 class DContact extends StatelessWidget {
   final PagesController _pagesC = Get.find<PagesController>();
   final ContactController _contactC = Get.find<ContactController>();
+
 
   DContact({super.key});
 
@@ -45,6 +47,10 @@ class DContact extends StatelessWidget {
                     height: 24.0,
                   ),
                   AppTextField(controller: _contactC.subjectController, label: 'Subject',),
+                  const SizedBox(
+                    height: 24.0,
+                  ),
+                  AppTextArea(controller: _contactC.messageController)
                 ],
               ),
             ),
