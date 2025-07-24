@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:typewritertext/typewritertext.dart';
 import 'package:zakwan_ali_portfolio/controllers/presentation/pages_controller.dart';
-import 'package:zakwan_ali_portfolio/presentation/creatives/app_theme.dart';
 import 'package:zakwan_ali_portfolio/utils/extensions/responsive_context.dart';
 import '../../../creatives/app_colors.dart';
 import '../../../custom_widgets/app_elevated_button.dart';
 import '../../../custom_widgets/default_page_body.dart';
-import '../../../custom_widgets/scroll_widget.dart';
 import '../../../custom_widgets/space_box.dart';
 
 class DHome extends StatelessWidget {
@@ -24,7 +22,7 @@ class DHome extends StatelessWidget {
         child: DefaultPageBody(
           children: [
             Padding(
-              padding: context.designInsetOnly(left: 50.0, top: 100.0),
+              padding: context.designInsetOnly(top: 100.0),
               child: Column(
                 // mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,

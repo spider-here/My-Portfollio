@@ -1,14 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:zakwan_ali_portfolio/presentation/custom_widgets/space_box.dart';
 
 import '../../../../controllers/presentation/pages_controller.dart';
-import '../../../creatives/app_theme.dart';
 import '../../../custom_widgets/default_page_body.dart';
 import '../../../custom_widgets/default_page_scaffold.dart';
 import '../../../custom_widgets/page_title.dart';
 import '../../../custom_widgets/portfolio_item.dart';
-import '../../../custom_widgets/scroll_widget.dart';
 
 class DPortfolio extends StatelessWidget{
   final PagesController pagesC = Get.find<PagesController>();
@@ -21,7 +20,6 @@ class DPortfolio extends StatelessWidget{
     return DefaultPageScaffold(
       body: DefaultPageBody(
         children: [
-          const Padding(padding: EdgeInsets.only(left: 50.0)),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(right: 100.0),
@@ -31,8 +29,8 @@ class DPortfolio extends StatelessWidget{
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   PageTitle(context: context, text: 'My portfolio'),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 50.0),
+                  const SpaceBox(
+                    space: 50.0,
                   ),
                   Expanded(
                       child: GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4,

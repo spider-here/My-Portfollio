@@ -5,7 +5,6 @@ import '../../../../controllers/presentation/pages_controller.dart';
 import '../../../custom_widgets/default_page_body.dart';
 import '../../../custom_widgets/default_page_scaffold.dart';
 import '../../../custom_widgets/page_title.dart';
-import '../../../custom_widgets/scroll_widget.dart';
 import '../../../custom_widgets/services_item.dart';
 
 class DServices extends StatelessWidget {
@@ -18,7 +17,6 @@ class DServices extends StatelessWidget {
     return DefaultPageScaffold(
       body: DefaultPageBody(
         children: [
-          const Padding(padding: EdgeInsets.only(left: 50.0)),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(right: 100.0),

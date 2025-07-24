@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_instance/get_instance.dart';
-import 'package:get/state_manager.dart';
 import 'package:zakwan_ali_portfolio/presentation/creatives/app_theme.dart';
 import 'package:zakwan_ali_portfolio/presentation/custom_widgets/space_box.dart';
 import 'package:zakwan_ali_portfolio/utils/extensions/context_theme.dart';
@@ -115,7 +113,6 @@ class DNavigation extends StatelessWidget {
               child: PageView(
                 controller: pagesC.pageController,
                 scrollDirection: Axis.vertical,
-                pageSnapping: false,
                 children: pages,
                 onPageChanged: (index) {
                   pagesC.currentPageIndex.value = index;

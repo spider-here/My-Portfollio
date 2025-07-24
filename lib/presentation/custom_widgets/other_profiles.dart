@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:zakwan_ali_portfolio/presentation/creatives/app_theme.dart';
 import 'package:zakwan_ali_portfolio/utils/extensions/responsive_context.dart';
 
 import '../creatives/app_colors.dart';
@@ -9,7 +8,7 @@ import 'app_icon_button.dart';
 
 class OtherProfiles extends StatelessWidget{
 
-  OtherProfiles({super.key});
+  const OtherProfiles({super.key});
   @override
   Widget build(BuildContext context) {
     return Column(

@@ -2,11 +2,9 @@ import 'package:flip_card/flip_card.dart';
 import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:zakwan_ali_portfolio/controllers/presentation/pages_controller.dart';
 
-import '../creatives/app_theme.dart';
 import '../creatives/app_colors.dart';
 import 'app_icon_button.dart';
 

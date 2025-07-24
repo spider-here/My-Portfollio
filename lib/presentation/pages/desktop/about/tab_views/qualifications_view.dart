@@ -4,6 +4,7 @@ import 'package:timelines_plus/timelines_plus.dart';
 import 'package:zakwan_ali_portfolio/presentation/pages/desktop/about/widgets/timeline_content_item.dart';
 import 'package:zakwan_ali_portfolio/presentation/pages/desktop/about/widgets/timeline_date_item.dart';
 import 'package:zakwan_ali_portfolio/utils/extensions/context_theme.dart';
+import 'package:zakwan_ali_portfolio/utils/extensions/responsive_context.dart';
 
 
 class QualificationsView extends StatelessWidget {
@@ -12,37 +13,63 @@ class QualificationsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<QuerySnapshot<Map<String, dynamic>>>(
-        future: FirebaseFirestore.instance
-            .collection('qualifications')
-            .orderBy('endDate', descending: true)
-            .get(),
-        builder: (context, snapshot) {
-          return Timeline.tileBuilder(
-              theme: TimelineThemeData(
-                color: context.appTheme.colorScheme.primary,
-              ),
-              shrinkWrap: true,
-              builder: TimelineTileBuilder.fromStyle(
-                  itemCount: snapshot.data?.docs.length ?? 0,
-                  connectorStyle: ConnectorStyle.dashedLine,
-                  contentsBuilder: (context, index) {
-                    final doc = snapshot.data?.docs[index];
-                    final String title = doc?['title'] ?? '';
-                    final String subtitle = doc?['subject'] ?? '';
-                    final String description1 = doc?['institute'] ?? '';
-                    final String description2 = doc?['location'] ?? '';
+      future: FirebaseFirestore.instance
+          .collection('qualifications')
+          .orderBy('endDate', descending: true)
+          .get(),
+      builder: (context, snapshot) {
+        final docs = snapshot.data?.docs ?? [];
 
-                    return TimelineContentItem(
-                        title: title,
-                        subtitle: subtitle,
-                        description: '$description1\n$description2');
-                  },
-                  oppositeContentsBuilder: (context, index) {
-                    final doc = snapshot.data?.docs[index];
-                    final Timestamp date = doc?['endDate'] ?? Timestamp.now();
-                    final String dateYear = date.toDate().year.toString();
-                    return TimelineDateItem(date: dateYear);
-                  }));
-        });
+        return Timeline.tileBuilder(
+          shrinkWrap: true,
+          theme: TimelineThemeData(
+            nodePosition: context.fontSizeFromDesign(0.20),
+            color: context.appTheme.colorScheme.primary,
+          ),
+          builder: TimelineTileBuilder.connected(
+            itemCount: docs.length,
+            itemExtent: context.heightFromDesign(140.0),
+            indicatorBuilder: (context, index) {
+              return Container(
+                width: context.widthFromDesign(12.0),
+                height: context.heightFromDesign(12.0),
+                decoration: BoxDecoration(
+                  color: context.appTheme.colorScheme.primary,
+                ),
+              );
+            },
+            connectorBuilder: (context, index, type) {
+              return DashedLineConnector(
+                color: context.appTheme.colorScheme.primary,
+              );
+            },
+            contentsBuilder: (context, index) {
+              final doc = docs[index];
+              final String title = doc['title'] ?? '';
+              final String subtitle = doc['subject'] ?? '';
+              final String institute = doc['institute'] ?? '';
+              final String location = doc['location'] ?? '';
+
+              return TimelineContentItem(
+                title: title,
+                subtitle: subtitle,
+                description: '$institute\n$location',
+              );
+            },
+            oppositeContentsBuilder: (context, index) {
+              final doc = docs[index];
+              final Timestamp date = doc['endDate'] ?? Timestamp.now();
+              final String dateYear = date.toDate().year.toString();
+
+              return SizedBox(
+                width: context.widthFromDesign(50.0),
+                child: TimelineDateItem(date: dateYear),
+              );
+            },
+          ),
+        );
+      },
+    );
+
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/context_extensions.dart';
+import 'package:zakwan_ali_portfolio/utils/extensions/responsive_context.dart';
 
 class TimelineContentItem extends StatelessWidget {
   final String title;
@@ -10,7 +11,7 @@ class TimelineContentItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: context.designInsetAll(8.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
