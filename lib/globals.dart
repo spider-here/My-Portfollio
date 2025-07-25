@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:web/web.dart' as web;
 
@@ -24,4 +25,38 @@ class Globals{
     anchor.remove(); // Cleanup after download
   }
 
+  //textfield validations
+
+  static String? validateRequired(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return '*Required';
+    }
+    return null;
+  }
+
+  static String? validateName(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return '*Required';
+    }
+
+    final nameRegExp = RegExp(r"^[a-zA-Z' ]{2,50}$");
+
+    if (!nameRegExp.hasMatch(value.trim())) {
+      return "Enter a valid name (letters, spaces, apostrophes only)";
+    }
+
+    return null;
+  }
+
+  static String? validateEmail(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return '*Required';
+    }
+
+    if(!(value.isEmail)){
+      return 'Enter a valid email';
+    }
+
+    return null;
+  }
 }

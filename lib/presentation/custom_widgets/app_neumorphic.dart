@@ -25,6 +25,9 @@ class AppNeumorphic extends StatelessWidget {
               depth: NeumorphicTheme.embossDepth(context),
               lightSource: theme.lightSource,
               boxShape: const NeumorphicBoxShape.rect(),
+              intensity: isDark ? 0.3 : null,
+              shadowLightColor: isDark ? Colors.grey.shade700 : Colors.white,
+              shadowDarkColor: isDark ? Colors.black : Colors.grey.shade400,
             ),
             padding: padding ?? context.designInsetSymmetric(vertical: 8.0, horizontal: 12.0),
             child: child

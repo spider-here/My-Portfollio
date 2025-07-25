@@ -21,7 +21,7 @@ class OtherProfiles extends StatelessWidget{
               'icons/linkedin.svg',
               height: context.heightFromDesign(30.0),
               width: context.widthFromDesign(30.0),
-              colorFilter: ColorFilter.mode(Get.isDarkMode ? primarySwatch.shade200 : primarySwatch, BlendMode.srcIn),
+              colorFilter: ColorFilter.mode(Get.isDarkMode ? primarySwatchLight.shade200 : primarySwatchLight, BlendMode.srcIn),
             )),
         AppIconButton(
             onClick: () {},
@@ -29,7 +29,7 @@ class OtherProfiles extends StatelessWidget{
               'icons/github.svg',
               height: context.heightFromDesign(30.0),
               width: context.widthFromDesign(30.0),
-              colorFilter: ColorFilter.mode(Get.isDarkMode ? primarySwatch.shade200 : primarySwatch, BlendMode.srcIn),
+              colorFilter: ColorFilter.mode(Get.isDarkMode ? primarySwatchLight.shade200 : primarySwatchLight, BlendMode.srcIn),
             )),
       ],
     );

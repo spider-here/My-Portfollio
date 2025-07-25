@@ -1,30 +1,33 @@
 import 'package:flutter_neumorphic_plus/flutter_neumorphic.dart';
-import 'package:zakwan_ali_portfolio/presentation/custom_widgets/app_neumorphic_theme.dart';
+import 'package:zakwan_ali_portfolio/presentation/custom_widgets/app_neumorphic.dart';
+import 'package:zakwan_ali_portfolio/utils/extensions/context_theme.dart';
 import 'package:zakwan_ali_portfolio/utils/extensions/responsive_context.dart';
 
 class AppTextField extends StatelessWidget {
   final TextEditingController controller;
-  final double? width;
   final String label;
+  final String? Function(String?)? validator;
 
   const AppTextField({
     super.key,
     required this.controller,
-    this.width,
-    required this.label,
+    required this.label, this.validator,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: context.widthFromDesign(width ?? 400.0),
       child: AppNeumorphic(
         child: TextFormField(
           controller: controller,
+          validator: validator,
           decoration: InputDecoration(
-            label: Text(label),
+            labelText: label,
             border: InputBorder.none,
             isDense: true,
+            floatingLabelStyle: TextStyle(
+              color: context.appTheme.primaryColor,
+            ),
           ),
         ),
       ),

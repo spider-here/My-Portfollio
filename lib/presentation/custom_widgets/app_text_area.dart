@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic_plus/flutter_neumorphic.dart';
-import 'package:zakwan_ali_portfolio/presentation/custom_widgets/app_neumorphic_theme.dart';
+import 'package:zakwan_ali_portfolio/presentation/custom_widgets/app_neumorphic.dart';
+import 'package:zakwan_ali_portfolio/utils/extensions/context_theme.dart';
 import 'package:zakwan_ali_portfolio/utils/extensions/responsive_context.dart';
 
 class AppTextArea extends StatelessWidget {
@@ -25,7 +26,7 @@ class AppTextArea extends StatelessWidget {
       onTap: () => FocusScope.of(context).requestFocus(_focusNode),
       child: AppNeumorphic(
         child: SizedBox(
-          width: context.widthFromDesign(width),
+          // width: context.widthFromDesign(width),
           height: context.heightFromDesign(height),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,8 +45,10 @@ class AppTextArea extends StatelessWidget {
                       decoration: InputDecoration(
                         labelText: label,
                         border: InputBorder.none,
+                        floatingLabelStyle: TextStyle(
+                          color: context.appTheme.primaryColor,
+                        ),
                       ),
-                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ),
                 ),

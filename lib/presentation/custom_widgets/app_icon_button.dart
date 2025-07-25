@@ -23,7 +23,7 @@ class AppIconButton extends StatelessWidget {
           onPressed: onClick,
           icon: icon,
           style: _themeModeStyle(context),
-          hoverColor: Get.isDarkMode ? accentTextDark : accentTextLight,
+          hoverColor: Get.isDarkMode ? primaryColorDark : accentTextLight,
         ),
       ),
     );
@@ -37,14 +37,14 @@ class AppIconButton extends StatelessWidget {
       )),
       foregroundColor: hover.isTrue
           ? Get.isDarkMode
-              ? const WidgetStatePropertyAll(accentTextDark)
+              ? const WidgetStatePropertyAll(primaryColorDark)
               : const WidgetStatePropertyAll(accentTextLight)
           : WidgetStatePropertyAll(
               context.textTheme.titleSmall?.color),
       textStyle: WidgetStatePropertyAll(context.textTheme.titleSmall),
       overlayColor: Get.isDarkMode
-          ? WidgetStatePropertyAll(primaryColor.withAlpha(77))
-          : WidgetStatePropertyAll(primaryColor.withAlpha(26)),
+          ? WidgetStatePropertyAll(primaryColorLight.withAlpha(77))
+          : WidgetStatePropertyAll(primaryColorLight.withAlpha(26)),
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic_plus/flutter_neumorphic.dart';
 import 'package:get/get.dart';
-import 'package:zakwan_ali_portfolio/presentation/custom_widgets/app_neumorphic_theme.dart';
+import 'package:zakwan_ali_portfolio/presentation/custom_widgets/app_neumorphic.dart';
 import 'package:zakwan_ali_portfolio/presentation/custom_widgets/space_box.dart';
 import 'package:zakwan_ali_portfolio/presentation/pages/desktop/about/tab_views/qualifications_view.dart';
 import 'package:zakwan_ali_portfolio/presentation/pages/desktop/about/tab_views/work_view.dart';

@@ -7,9 +7,10 @@ import 'app_colors.dart';
 
 class AppTheme {
   static ThemeData lightTheme(BuildContext context) {
-    return ThemeData.from(
+    return ThemeData(
+      primaryColor: primaryColorLight,
         colorScheme: ColorScheme.fromSwatch(
-          primarySwatch: primarySwatch,
+          primarySwatch: primarySwatchLight,
           accentColor: accentColor,
           backgroundColor: backgroundLight,
           cardColor: backgroundLight,
@@ -45,10 +46,11 @@ class AppTheme {
   }
 
   static ThemeData darkTheme(BuildContext context) {
-    return ThemeData.from(
+    return ThemeData(
+        primaryColor: primaryColorDark,
         colorScheme: ColorScheme.fromSwatch(
           brightness: Brightness.dark,
-          primarySwatch: primarySwatch,
+          primarySwatch: primarySwatchDark,
           accentColor: accentColor,
           backgroundColor: backgroundDark,
           cardColor: backgroundDark,
@@ -61,7 +63,7 @@ class AppTheme {
             headlineMedium: GoogleFonts.montserrat(
                 fontSize: context.fontSizeFromDesign(24.0),
                 fontWeight: FontWeight.bold,
-                color: accentTextDark),
+                color: primaryColorDark),
             headlineSmall: GoogleFonts.montserrat(
                 fontSize: context.fontSizeFromDesign(20.0),
                 fontWeight: FontWeight.bold,

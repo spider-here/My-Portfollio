@@ -39,15 +39,15 @@ class ServicesItem extends StatelessWidget {
               gradient: LinearGradient(
             colors: Get.isDarkMode
                 ? [
-                    primarySwatch.shade300,
-                    primarySwatch.shade600,
-                    primarySwatch.shade800,
+                    primarySwatchLight.shade300,
+                    primarySwatchLight.shade600,
+                    primarySwatchLight.shade800,
                     backgroundDark
                   ]
                 : [
-                    primarySwatch.shade600,
-                    primarySwatch.shade300,
-                    primarySwatch.shade100,
+                    primarySwatchLight.shade600,
+                    primarySwatchLight.shade300,
+                    primarySwatchLight.shade100,
                     backgroundLight,
                     backgroundLight
                   ],

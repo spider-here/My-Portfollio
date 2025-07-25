@@ -38,15 +38,15 @@ class TabButton extends StatelessWidget {
       foregroundColor: _getForegroundColor(context, isSelected),
       textStyle: WidgetStatePropertyAll(context.textTheme.titleSmall),
       overlayColor: Get.isDarkMode
-          ? WidgetStatePropertyAll(primaryColor.withAlpha(77))
-          : WidgetStatePropertyAll(primaryColor.withAlpha(26)),
+          ? WidgetStatePropertyAll(primaryColorLight.withAlpha(77))
+          : WidgetStatePropertyAll(primaryColorLight.withAlpha(26)),
     );
   }
 
   WidgetStateProperty<Color?> _getForegroundColor(BuildContext context, bool isSelected) {
     if (isSelected || hover.isTrue) {
       return Get.isDarkMode
-          ? const WidgetStatePropertyAll(accentTextDark)
+          ? const WidgetStatePropertyAll(primaryColorDark)
           : const WidgetStatePropertyAll(accentTextLight);
     } else {
       return WidgetStatePropertyAll(context.textTheme.titleSmall?.color);
