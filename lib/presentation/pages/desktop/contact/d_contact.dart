@@ -118,6 +118,17 @@ class DContact extends StatelessWidget {
           ),
         ],
       ),
+      footer: Container(
+        height: context.heightFromDesign(80.0),
+        color: Get.isDarkMode ? footerDark : footerLight,
+        padding: EdgeInsets.symmetric(horizontal: context.widthFromDesign(32.0)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Text('© 2025 Zakwan Ali Tariq. All rights reserved.', style: context.textTheme.bodySmall?.copyWith(color: primaryTextDark),)
+          ],
+        ),
+      ),
     );
   }
 }

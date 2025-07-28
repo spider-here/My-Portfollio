@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 import 'package:zakwan_ali_portfolio/presentation/pages/desktop/navigation/d_navigation.dart';
 import 'package:zakwan_ali_portfolio/presentation/pages/mobile/navigation/m_navigation.dart';
 
@@ -8,7 +9,7 @@ class Wrapper extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints){
-      if(constraints.maxWidth >= 600){
+      if(context.isLandscape){
         return DNavigation();
       }
       else{

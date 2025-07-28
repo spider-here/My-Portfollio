@@ -11,6 +11,9 @@ const Color primaryColorDark = Color(0xFF9c83c4);
 Color backgroundLight = Colors.grey.shade100;
 Color backgroundDark = Colors.grey.shade900;
 const Color accentColor = Colors.orangeAccent;
+Color footerLight = Colors.grey.shade900;
+Color footerDark = Colors.grey.shade800;
+
 
 const MaterialColor primarySwatchLight = MaterialColor(0xFF7250a8, {
 50: Color(0xFFa690ca),

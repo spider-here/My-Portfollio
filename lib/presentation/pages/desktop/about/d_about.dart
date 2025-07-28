@@ -69,13 +69,13 @@ class DAbout extends StatelessWidget {
                       labelColor: context.textTheme.headlineMedium?.color,
                       tabs: [
                         Tab(
-                          height: 30.0,
+                          height: context.heightFromDesign(30.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              const Icon(
+                              Icon(
                                 Icons.work_rounded,
-                                size: 20.0,
+                                size: context.fontSizeFromDesign(20.0),
                               ),
                               const SpaceBox.horizontal(space: 10.0),
                               Text(
@@ -88,13 +88,13 @@ class DAbout extends StatelessWidget {
                           ),
                         ),
                         Tab(
-                          height: 30.0,
+                          height: context.heightFromDesign(30.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              const Icon(
+                              Icon(
                                 Icons.star,
-                                size: 20.0,
+                                size: context.fontSizeFromDesign(20.0),
                               ),
                               const SpaceBox.horizontal(space: 10.0),
                               Text(
@@ -135,7 +135,7 @@ class DAbout extends StatelessWidget {
                             children: [
                               Icon(
                                 Icons.file_download_outlined,
-                                size: 14.0,
+                                size: context.fontSizeFromDesign(14.0),
                                 color: primaryTextDark,
                               ),
                               const SpaceBox.horizontal(space: 10.0),
