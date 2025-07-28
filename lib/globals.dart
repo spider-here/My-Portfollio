@@ -42,7 +42,7 @@ class Globals{
     final nameRegExp = RegExp(r"^[a-zA-Z' ]{2,50}$");
 
     if (!nameRegExp.hasMatch(value.trim())) {
-      return "Enter a valid name (letters, spaces, apostrophes only)";
+      return 'Enter a valid name (letters, spaces, apostrophes only)';
     }
 
     return null;
