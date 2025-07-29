@@ -1,149 +1,278 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:zakwan_ali_portfolio/presentation/custom_widgets/other_profiles.dart';
+import 'package:typewritertext/typewritertext.dart';
+import 'package:zakwan_ali_portfolio/controllers/presentation/scrolls_controller.dart';
 import 'package:zakwan_ali_portfolio/presentation/custom_widgets/space_box.dart';
 import 'package:zakwan_ali_portfolio/utils/extensions/context_theme.dart';
 import 'package:zakwan_ali_portfolio/utils/extensions/responsive_context.dart';
 
-import '../../../../controllers/presentation/pages_controller.dart';
+import '../../../../globals.dart';
 import '../../../creatives/app_colors.dart';
 import '../../../creatives/app_theme.dart';
+import '../../../custom_widgets/app_elevated_button.dart';
 import '../../../custom_widgets/app_icon_button.dart';
-import '../../../custom_widgets/scroll_widget.dart';
-import '../../../custom_widgets/tab_button.dart';
-import '../about/m_about.dart';
-import '../contact/m_contact.dart';
-import '../home/m_home.dart';
-import '../portfolio/m_portfolio.dart';
-import '../services/m_services.dart';
+import '../../../custom_widgets/app_neumorphic.dart';
+import '../../../custom_widgets/page_title.dart';
+import '../../desktop/about/tab_views/qualifications_view.dart';
+import '../../desktop/about/tab_views/work_view.dart';
 
 class MNavigation extends StatelessWidget {
-  final PagesController pagesC = Get.find<PagesController>();
-  final List<Widget> pages = [
-    MHome(),
-    MAbout(),
-    MServices(),
-    MPortfolio(),
-    MContact()
-  ];
+  final ScrollsController scrollsC =
+      Get.put<ScrollsController>(ScrollsController());
 
   MNavigation({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SliderDrawer(
-        isDraggable: false,
-        backgroundColor: context.theme.scaffoldBackgroundColor,
-        appBar: SliderAppBar(
-          config: SliderAppBarConfig(
-            backgroundColor: context.theme.scaffoldBackgroundColor,
-            drawerIconColor:
-            Get.isDarkMode ? primaryTextDark : primaryTextLight,
-            title: Text(
-              'Flutter Developer',
-              textAlign: TextAlign.center,
-              style: context.textTheme.titleSmall,
+    return Obx(() {
+      return Scaffold(
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(
+            scrollsC.offset > 0 ? context.heightFromDesign(kToolbarHeight) : context.heightFromDesign(kToolbarHeight + 40.0),
+          ),
+          child: TweenAnimationBuilder<double>(
+            duration: const Duration(milliseconds: 300),
+            tween: Tween<double>(
+              begin: context.heightFromDesign(kToolbarHeight + 40.0),
+              end: scrollsC.offset > 0
+                  ? context.heightFromDesign(kToolbarHeight)
+                  : context.heightFromDesign(kToolbarHeight + 40.0),
             ),
-            trailing: AppIconButton(
-              onClick: AppTheme.changeTheme,
-              icon: Get.isDarkMode
-                  ? const Icon(Icons.wb_sunny_outlined)
-                  : const Icon(Icons.nightlight_outlined),
-            ),
+            builder: (context, height, child) {
+              return AppBar(
+                toolbarHeight: height,
+                backgroundColor: context.appTheme.scaffoldBackgroundColor,
+                surfaceTintColor: Colors.transparent,
+                elevation: 0.0,
+                title: const Text('Flutter Developer'),
+                titleTextStyle: context.textTheme.titleSmall,
+                centerTitle: false,
+                bottom: PreferredSize(
+                  preferredSize: const Size.fromHeight(0.8),
+                  child: scrollsC.offset > 0
+                      ? const Divider(
+                          color: Colors.grey, thickness: 0.2, height: 0.8)
+                      : const SizedBox(),
+                ),
+                actions: [
+                  AppIconButton(
+                    onClick: AppTheme.changeTheme,
+                    icon: Get.isDarkMode
+                        ? const Icon(Icons.wb_sunny_outlined)
+                        : const Icon(Icons.nightlight_outlined),
+                  ),
+                  // const SpaceBox.horizontal(space: 100.0)
+                ],
+              );
+            },
           ),
         ),
-        sliderOpenSize: context.widthFromDesign(180.0),
-        slider: Padding(
-          padding: const EdgeInsets.symmetric(
-              horizontal: 12.0, vertical: 24.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            spacing: context.heightFromDesign(8.0),
-            children: [
-              TabButton(
-                onClick: () => pagesC.pageJump(0),
-                text: 'Home',
-                index: 0,
-                selectedIndex: pagesC.currentPageIndex,
-              ),
-              TabButton(
-                onClick: () => pagesC.pageJump(1),
-                text: 'About',
-                index: 1,
-                selectedIndex: pagesC.currentPageIndex,
-              ),
-              TabButton(
-                onClick: () => pagesC.pageJump(2),
-                text: 'Services',
-                index: 2,
-                selectedIndex: pagesC.currentPageIndex,
-              ),
-              TabButton(
-                onClick: () => pagesC.pageJump(3),
-                text: 'Portfolio',
-                index: 3,
-                selectedIndex: pagesC.currentPageIndex,
-              ),
-              TabButton(
-                onClick: () => pagesC.pageJump(4),
-                text: 'Contact',
-                index: 4,
-                selectedIndex: pagesC.currentPageIndex,
-              ),
-              const Spacer(),
-              const OtherProfiles(horizontal: true,),
-            ],
-          ),
-        ),
-        child: Stack(
+        body: Stack(
           children: [
-            Scrollbar(
-              controller: pagesC.pageController,
-              child: PageView(
-                physics: const BouncingScrollPhysics(),
-                controller: pagesC.pageController,
-                pageSnapping: false,
-                scrollDirection: Axis.vertical,
-                children: pages,
-                onPageChanged: (index) {
-                  pagesC.currentPageIndex.value = index;
-                },
+            SingleChildScrollView(
+              controller: scrollsC.scrollController,
+              physics: const BouncingScrollPhysics(),
+              padding: context.designInsetLTRB(16.0, 24.0, 16.0, 0.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: context.screenWidth / 1.1,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TypeWriterText(
+                          text: Text(
+                            'Hi, I\'m Zakwan',
+                            style: context.textTheme.headlineLarge,
+                            textAlign: TextAlign.start,
+                          ),
+                          duration: const Duration(milliseconds: 1),
+                        ),
+                        RichText(
+                            text: TextSpan(children: [
+                          TextSpan(
+                            text: 'Crafting Seamless Experiences with ',
+                            style: context.textTheme.headlineSmall,
+                          ),
+                          TextSpan(
+                            text: 'Flutter Magic.',
+                            style: context.textTheme.headlineMedium,
+                          ),
+                        ])),
+                        const SpaceBox(space: 12.0),
+                        Text(
+                          'Experienced Flutter developer with a strong background in web and mobile app development. Committed to continuous learning and dedicated to delivering quality work.',
+                          style: context.textTheme.bodyMedium,
+                          textAlign: TextAlign.start,
+                          maxLines: 10,
+                        ),
+                        const SpaceBox(space: 32.0),
+                        AppElevatedButton(
+                            onClick: () {
+                              // pagesC.pageJump(4);
+                            },
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text(
+                                  'Contact me',
+                                  style: context.textTheme.bodySmall?.copyWith(
+                                      color: primaryTextDark,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                const SpaceBox.horizontal(space: 10.0),
+                                Icon(
+                                  Icons.send_outlined,
+                                  size: 14.0,
+                                  color: primaryTextDark,
+                                )
+                              ],
+                            )),
+                      ],
+                    ),
+                  ),
+                  const SpaceBox(space: 50.0),
+                  PageTitle(context: context, text: 'About me'),
+                  const SpaceBox(space: 32.0),
+                  const Text(
+                    'Passionate and skilled in the realm of Computer Science,'
+                        ' I bring a wealth of experience and expertise in web and mobile application development,'
+                        ' particularly in Flutter. With a solid foundation in Agile methodologies,'
+                        ' I have led teams to deliver high-quality Android, iOS, and web applications,'
+                        ' showcasing advanced logic building and robust problem-solving abilities.'
+                        ' My commitment to continuous learning is evident through certifications'
+                        ' in Flutter Application Development and Microsoft Office Expertise.'
+                        ' As a technology enthusiast, I stay abreast of modern trends while honing my skills in full-stack development,'
+                        ' API integration, debugging, and IT support. With a track record of successfully leading projects,'
+                        ' I am driven by a relentless pursuit of excellence and thrive in dynamic,'
+                        ' collaborative environments where I can apply and refine my skills to drive impactful solutions.',
+                    textAlign: TextAlign.justify,
+                  ),
+                  SizedBox(
+                    width: context.widthFromDesign(550.0),
+                    height: context.widthFromDesign(750.0),
+                    child: DefaultTabController(
+                      length: 2,
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            width: context.widthFromDesign(550.0),
+                            height: context.heightFromDesign(50.0),
+                            child: TabBar(
+                              tabAlignment: TabAlignment.start,
+                              dividerHeight: 0.0,
+                              isScrollable: true,
+                              splashBorderRadius: BorderRadius.zero,
+                              indicatorColor: context.textTheme.headlineMedium?.color,
+                              labelColor: context.textTheme.headlineMedium?.color,
+                              tabs: [
+                                Tab(
+                                  height: context.heightFromDesign(30.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Icon(
+                                        Icons.work_rounded,
+                                        size: context.fontSizeFromDesign(20.0),
+                                      ),
+                                      const SpaceBox.horizontal(space: 10.0),
+                                      Text(
+                                        'Work',
+                                        style: TextStyle(
+                                            fontSize:
+                                            context.textTheme.bodySmall?.fontSize),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                Tab(
+                                  height: context.heightFromDesign(30.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Icon(
+                                        Icons.star,
+                                        size: context.fontSizeFromDesign(20.0),
+                                      ),
+                                      const SpaceBox.horizontal(space: 10.0),
+                                      Text(
+                                        'Qualification',
+                                        style: TextStyle(
+                                            fontSize:
+                                            context.textTheme.bodySmall?.fontSize),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const Expanded(
+                            child: DefaultTabController(
+                              length: 2,
+                              child: AppNeumorphic(
+                                child: TabBarView(
+                                  physics: NeverScrollableScrollPhysics(),
+                                  children: [
+                                    WorkView(),
+                                    QualificationsView(),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SpaceBox(space: 32.0),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              AppElevatedButton(
+                                  onClick: () {
+                                    Globals.downloadFile(
+                                        'https://firebasestorage.googleapis.com/v0/b/zakwan-ali.appspot.com/o/cv%2FZakwan%20Ali%20Tariq%20-%20CV.pdf?alt=media&token=f2596387-81e5-494d-b049-d6a52be00222');
+                                  },
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Icon(
+                                        Icons.file_download_outlined,
+                                        size: context.fontSizeFromDesign(14.0),
+                                        color: primaryTextDark,
+                                      ),
+                                      const SpaceBox.horizontal(space: 10.0),
+                                      Text(
+                                        'Download Resume',
+                                        style: context.textTheme.bodySmall?.copyWith(
+                                            color: primaryTextDark,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ],
+                                  )),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  // MServices(),
+                  // MPortfolio(),
+                  // MContact(),
+                ],
               ),
             ),
             Align(
-                alignment: FractionalOffset.bottomLeft,
-                child: Obx(() {
-                  return Visibility(
-                    visible: pagesC.currentPageIndex.value != 4,
-                    child: Padding(
-                      padding: context.designInsetOnly(bottom: 16.0, left: 8.0),
-                      child: ScrollWidget(
-                        onClick: pagesC.nextPage,
-                        scrollDown: true,
-                      ),
-                    ),
-                  );
-                })),
-            Align(
-                alignment: FractionalOffset.topRight,
-                child: Obx(() {
-                  return Visibility(
-                    visible: pagesC.currentPageIndex.value == 4,
-                    child: Padding(
-                      padding: context.designInsetOnly(top: 16.0, right: 8.0),
-                      child: ScrollWidget(
-                        onClick: () => pagesC.pageJump(0),
-                        scrollDown: false,
-                      ),
-                    ),
-                  );
-                })),
+              alignment: FractionalOffset.bottomRight,
+              child: Image.asset(
+                'images/portrait.png',
+                height: context.heightFromDesign(380.0),
+              ),
+            )
           ],
         ),
-      ),
-    );
+      );
+    });
   }
 }

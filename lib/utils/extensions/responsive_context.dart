@@ -15,7 +15,10 @@ extension ResponsiveContext on BuildContext {
   double get _scaleHeight => screenHeight / designHeight;
 
   /// Geometric mean scaling factor for consistent scaling
-  double get _scaleFactor => (_scaleWidth + _scaleHeight) / 2;
+  double get _scaleFactor {
+    final avg = (_scaleWidth + _scaleHeight) / 2;
+    return isLandscape ? avg : avg.clamp(0.85, 1.0);
+  }
 
   // Dimensions
   double heightFromDesign(double widgetHeight, {double? designHeight}) {

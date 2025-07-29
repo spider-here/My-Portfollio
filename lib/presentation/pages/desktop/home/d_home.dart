@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:typewritertext/typewritertext.dart';
@@ -18,84 +17,79 @@ class DHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: context.designInsetLTRB(100.0, 50.0, 100.0, 0.0),
-        child: DefaultPageBody(
-          children: [
-            Padding(
-              padding: context.designInsetOnly(top: 100.0),
-              child: Column(
-                // mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    width: context.width / 3,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        TypeWriterText(
-                          text: Text(
-                            'Hi, I\'m Zakwan',
-                            style: context.textTheme.headlineLarge,
+          padding: context.designInsetLTRB(100.0, 50.0, 100.0, 0.0),
+          child: DefaultPageBody(
+            children: [
+              Padding(
+                padding: context.designInsetOnly(top: 100.0),
+                child: Column(
+                  // mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: context.width / 3,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          TypeWriterText(
+                            text: Text(
+                              'Hi, I\'m Zakwan',
+                              style: context.textTheme.headlineLarge,
+                              textAlign: TextAlign.start,
+                            ),
+                            duration: const Duration(milliseconds: 1),
+                          ),
+                          Text(
+                            'Crafting Seamless Experiences with',
+                            style: context.textTheme.headlineSmall,
                             textAlign: TextAlign.start,
                           ),
-                          duration: const Duration(
-                              milliseconds: 1),
-                        ),
-                        Text(
-                          'Crafting Seamless Experiences with',
-                          style: context.textTheme.headlineSmall,
-                          textAlign: TextAlign.start,
-                        ),
-                        Text(
-                          'Flutter Magic.',
-                          style: context.textTheme.headlineMedium,
-                          textAlign: TextAlign.start,
-                        ),
-                        Text(
-                          'Experienced Flutter developer with a strong background in web and mobile app development. Committed to continuous learning and dedicated to delivering quality work.',
-                          style: context.textTheme.bodyMedium,
-                          textAlign: TextAlign.start,
-                          maxLines: 10,
-                        ),
-                      ],
-                    ),
-                  ),
-                  AppElevatedButton(
-                      onClick: () {
-                        pagesC.pageJump(4);
-                      },
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
                           Text(
-                            'Contact me',
-                            style: context
-                                .textTheme
-                                .bodySmall
-                                ?.copyWith(
-                                color: primaryTextDark,
-                                fontWeight: FontWeight.bold),
+                            'Flutter Magic.',
+                            style: context.textTheme.headlineMedium,
+                            textAlign: TextAlign.start,
                           ),
-                          const SpaceBox.horizontal(space: 10.0),
-                          Icon(
-                            Icons.send_outlined,
-                            size: 14.0,
-                            color: primaryTextDark,
-                          )
+                          Text(
+                            'Experienced Flutter developer with a strong background in web and mobile app development. Committed to continuous learning and dedicated to delivering quality work.',
+                            style: context.textTheme.bodyMedium,
+                            textAlign: TextAlign.start,
+                            maxLines: 10,
+                          ),
                         ],
-                      )),
-                ],
+                      ),
+                    ),
+                    AppElevatedButton(
+                        onClick: () {
+                          pagesC.pageJump(4);
+                        },
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text(
+                              'Contact me',
+                              style: context.textTheme.bodySmall?.copyWith(
+                                  color: primaryTextDark,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            const SpaceBox.horizontal(space: 10.0),
+                            Icon(
+                              Icons.send_outlined,
+                              size: 14.0,
+                              color: primaryTextDark,
+                            )
+                          ],
+                        )),
+                  ],
+                ),
               ),
-            ),
-            const Spacer(),
-            // Image.asset('images/portrait.png', width: context.widthFromDesign(600.0), height: context.heightFromDesign(850.0),),
-          ],
-        )
-      ),
+              const Spacer(),
+              // Image.asset('images/portrait.png', width: context.widthFromDesign(600.0), height: context.heightFromDesign(850.0),),
+            ],
+          )),
     );
   }
 }

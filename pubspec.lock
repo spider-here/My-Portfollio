@@ -113,14 +113,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.8"
-  equatable:
-    dependency: transitive
-    description:
-      name: equatable
-      sha256: "567c64b3cb4cf82397aac55f4f0cbd3ca20d77c6c03bedbc4ceaddc08904aef7"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.7"
   fake_async:
     dependency: transitive
     description:
@@ -198,22 +190,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.4.0"
-  flutter_shaders:
-    dependency: transitive
-    description:
-      name: flutter_shaders
-      sha256: "34794acadd8275d971e02df03afee3dee0f98dbfb8c4837082ad0034f612a3e2"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.1.3"
-  flutter_slider_drawer:
-    dependency: "direct main"
-    description:
-      name: flutter_slider_drawer
-      sha256: "41a627bc3a87c981ca128c0ec4e0f2135244c8e13a78bf472db4d59a1ed9896f"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.0.2"
   flutter_spinkit:
     dependency: "direct main"
     description:
@@ -312,14 +288,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
-  liquid_glass_renderer:
-    dependency: "direct main"
-    description:
-      name: liquid_glass_renderer
-      sha256: "060c29c804fb7aa7dd73901eaaedb5ba89cd431ca663c4fe7b8d6eefca685977"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.1.1-dev.9"
   matcher:
     dependency: transitive
     description:
@@ -599,4 +567,4 @@ packages:
     version: "6.5.0"
 sdks:
   dart: ">=3.7.0-0 <4.0.0"
-  flutter: ">=3.32.4"
+  flutter: ">=3.27.0"
