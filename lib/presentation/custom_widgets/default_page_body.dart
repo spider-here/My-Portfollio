@@ -6,8 +6,9 @@ import 'other_profiles.dart';
 class DefaultPageBody extends StatelessWidget {
   final List<Widget>? children;
   final CrossAxisAlignment? crossAxisAlignment;
+  final bool isLandscape;
 
-  const DefaultPageBody({super.key, this.children, this.crossAxisAlignment});
+  const DefaultPageBody({super.key, this.children, this.crossAxisAlignment, this.isLandscape = true});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class DefaultPageBody extends StatelessWidget {
         crossAxisAlignment: crossAxisAlignment ?? CrossAxisAlignment.center,
         children: [
           const Center(child: OtherProfiles()),
-          const SpaceBox.horizontal(space: 50.0),
+          isLandscape ? const SpaceBox.horizontal(space: 50.0) : const SpaceBox.horizontal(space: 16.0),
           if (children != null) ...?children
         ]);
   }

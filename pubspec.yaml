@@ -52,6 +52,7 @@ dependencies:
   web: ^1.1.1
   flutter_neumorphic_plus: ^3.4.0
   liquid_glass_renderer: ^0.1.1-dev.9
+  flutter_slider_drawer: ^3.0.2
 
 dev_dependencies:
   flutter_test:

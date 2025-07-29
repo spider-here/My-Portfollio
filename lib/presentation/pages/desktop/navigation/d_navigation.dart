@@ -123,18 +123,24 @@ class DNavigation extends StatelessWidget {
                 alignment: FractionalOffset.bottomLeft,
                 child: Visibility(
                   visible: pagesC.currentPageIndex.value != 4,
-                  child: ScrollWidget(
-                    onClick: pagesC.nextPage,
-                    scrollDown: true,
+                  child: Padding(
+                    padding: context.designInsetOnly(left: 185.0, bottom: 50.0),
+                    child: ScrollWidget(
+                      onClick: pagesC.nextPage,
+                      scrollDown: true,
+                    ),
                   ),
                 )),
             Align(
                 alignment: FractionalOffset.topRight,
                 child: Visibility(
                   visible: pagesC.currentPageIndex.value == 4,
-                  child: ScrollWidget(
-                    onClick: () => pagesC.pageJump(0),
-                    scrollDown: false,
+                  child: Padding(
+                    padding: context.designInsetOnly(top: 100.0, right: 100.0),
+                    child: ScrollWidget(
+                      onClick: () => pagesC.pageJump(0),
+                      scrollDown: false,
+                    ),
                   ),
                 )),
           ],
