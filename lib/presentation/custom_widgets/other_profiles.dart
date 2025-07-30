@@ -42,7 +42,7 @@ class OtherProfiles extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> children = otherProfiles(context);
+    final List<Widget> children = otherProfiles(context);
     return horizontal
         ? Row(
             mainAxisSize: MainAxisSize.min,

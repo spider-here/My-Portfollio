@@ -9,7 +9,9 @@ import 'package:zakwan_ali_portfolio/utils/extensions/responsive_context.dart';
 import '../../../../../globals.dart';
 
 class WorkView extends StatelessWidget {
-  const WorkView({super.key});
+  final ScrollPhysics physics;
+
+  const WorkView({super.key, this.physics = const BouncingScrollPhysics()});
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +24,7 @@ class WorkView extends StatelessWidget {
         final docs = snapshot.data?.docs ?? [];
         return Timeline.tileBuilder(
           shrinkWrap: true,
+          physics: physics,
           theme: TimelineThemeData(
             nodePosition: context.fontSizeFromDesign(0.40),
             color: context.appTheme.colorScheme.primary,
@@ -58,10 +61,12 @@ class WorkView extends StatelessWidget {
             oppositeContentsBuilder: (context, index) {
               final doc = docs[index];
               final bool present = doc['present'] ?? true;
-              final String startDate = Globals.timestampToString(doc['startDate'] ?? Timestamp.now());
+              final String startDate = Globals.timestampToString(
+                  doc['startDate'] ?? Timestamp.now());
               final String endDate = present
                   ? 'Present'
-                  : Globals.timestampToString(doc['endDate'] ?? Timestamp.now());
+                  : Globals.timestampToString(
+                      doc['endDate'] ?? Timestamp.now());
 
               return SizedBox(
                 width: context.widthFromDesign(150.0),
@@ -72,6 +77,5 @@ class WorkView extends StatelessWidget {
         );
       },
     );
-
   }
 }

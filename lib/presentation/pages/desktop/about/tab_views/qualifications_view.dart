@@ -6,9 +6,11 @@ import 'package:zakwan_ali_portfolio/presentation/pages/desktop/about/widgets/ti
 import 'package:zakwan_ali_portfolio/utils/extensions/context_theme.dart';
 import 'package:zakwan_ali_portfolio/utils/extensions/responsive_context.dart';
 
-
 class QualificationsView extends StatelessWidget {
-  const QualificationsView({super.key});
+  final ScrollPhysics physics;
+
+  const QualificationsView(
+      {super.key, this.physics = const BouncingScrollPhysics()});
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +24,7 @@ class QualificationsView extends StatelessWidget {
 
         return Timeline.tileBuilder(
           shrinkWrap: true,
+          physics: physics,
           theme: TimelineThemeData(
             nodePosition: context.fontSizeFromDesign(0.20),
             color: context.appTheme.colorScheme.primary,
@@ -70,6 +73,5 @@ class QualificationsView extends StatelessWidget {
         );
       },
     );
-
   }
 }

@@ -1,15 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
-class ScrollsController extends GetxController{
+class ScrollsController extends GetxController {
   final ScrollController scrollController = ScrollController();
   final RxDouble offset = 0.0.obs;
+  final RxDouble pixels = 0.0.obs;
+  final RxDouble maxExtent = 0.0.obs;
+
+  bool get hasClients => scrollController.hasClients;
 
   @override
   void onInit() {
-    scrollController.addListener((){
-      offset.value = scrollController.offset;
+    scrollController.addListener(() {
+      if(hasClients){
+        offset.value = scrollController.offset;
+        pixels.value = scrollController.position.pixels;
+        maxExtent.value = scrollController.position.maxScrollExtent;
+      }
     });
     super.onInit();
   }
