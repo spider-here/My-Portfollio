@@ -8,7 +8,11 @@ import 'package:zakwan_ali_portfolio/utils/extensions/responsive_context.dart';
 
 import '../../../creatives/app_theme.dart';
 import '../../../custom_widgets/app_icon_button.dart';
+import '../../../custom_widgets/page_title.dart';
+import '../contact/m_contact.dart';
 import '../home/m_home.dart';
+import '../portfolio/m_portfolio.dart';
+import '../services/m_services.dart';
 
 class MNavigation extends StatelessWidget {
   final ScrollsController scrollsC =
@@ -93,17 +97,29 @@ class MNavigation extends StatelessWidget {
               controller: scrollsC.scrollController,
               physics: const BouncingScrollPhysics(),
               padding: context.designInsetLTRB(16.0, 24.0, 16.0, 0.0),
-              child: const Column(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  MHome(),
-                  SpaceBox(space: 100.0),
-                  MAbout(),
-                  SpaceBox(space: 100.0),
-
-                  // MServices(),
-                  // MPortfolio(),
-                  // MContact(),
+                  const MHome(),
+                  const SpaceBox(space: 50.0),
+                  PageTitle(context: context, text: 'About me'),
+                  const SpaceBox(space: 16.0),
+                  const MAbout(),
+                  const SpaceBox(space: 50.0),
+                  PageTitle(context: context, text: 'Services I offer'),
+                  const SpaceBox(space:16.0),
+                  const MServices(),
+                  const SpaceBox(space: 50.0),
+                  PageTitle(context: context, text: 'My portfolio'),
+                  const SpaceBox(
+                    space: 16.0,
+                  ),
+                  const MPortfolio(),
+                  const SpaceBox(space: 50.0),
+                  PageTitle(context: context, text: 'Contact me'),
+                  const SpaceBox(space: 16.0,
+                  ),
+                  MContact(),
                 ],
               ),
             ),

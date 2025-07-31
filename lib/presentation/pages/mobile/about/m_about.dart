@@ -7,7 +7,6 @@ import '../../../../globals.dart';
 import '../../../creatives/app_colors.dart';
 import '../../../custom_widgets/app_elevated_button.dart';
 import '../../../custom_widgets/app_neumorphic.dart';
-import '../../../custom_widgets/page_title.dart';
 import '../../../custom_widgets/space_box.dart';
 import '../../desktop/about/tab_views/qualifications_view.dart';
 import '../../desktop/about/tab_views/work_view.dart';
@@ -47,8 +46,6 @@ class _MAboutState extends State<MAbout> with SingleTickerProviderStateMixin {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        PageTitle(context: context, text: 'About me'),
-        const SpaceBox(space: 16.0),
         const Text(
           'Passionate and skilled in the realm of Computer Science,'
               ' I bring a wealth of experience and expertise in web and mobile application development,'
