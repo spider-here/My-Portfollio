@@ -7,6 +7,7 @@ import 'package:zakwan_ali_portfolio/presentation/pages/desktop/about/tab_views/
 import 'package:zakwan_ali_portfolio/presentation/pages/desktop/about/tab_views/work_view.dart';
 import 'package:zakwan_ali_portfolio/utils/extensions/responsive_context.dart';
 import '../../../../controllers/presentation/pages_controller.dart';
+import '../../../../data/local/local_data.dart';
 import '../../../../globals.dart';
 import '../../../creatives/app_colors.dart';
 import '../../../custom_widgets/app_elevated_button.dart';
@@ -21,29 +22,20 @@ class DAbout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final data = LocalData.instance;
     return DefaultPageScaffold(
       body: DefaultPageBody(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            width: context.widthFromDesign(500.0),
+            width: context.widthFromDesign(550.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 PageTitle(context: context, text: 'About me'),
                 const SpaceBox(space: 32.0),
-                const Text(
-                  'Passionate and skilled in the realm of Computer Science,'
-                  ' I bring a wealth of experience and expertise in web and mobile application development,'
-                  ' particularly in Flutter. With a solid foundation in Agile methodologies,'
-                  ' I have led teams to deliver high-quality Android, iOS, and web applications,'
-                  ' showcasing advanced logic building and robust problem-solving abilities.'
-                  ' My commitment to continuous learning is evident through certifications'
-                  ' in Flutter Application Development and Microsoft Office Expertise.'
-                  ' As a technology enthusiast, I stay abreast of modern trends while honing my skills in full-stack development,'
-                  ' API integration, debugging, and IT support. With a track record of successfully leading projects,'
-                  ' I am driven by a relentless pursuit of excellence and thrive in dynamic,'
-                  ' collaborative environments where I can apply and refine my skills to drive impactful solutions.',
+                Text(
+                  data.about,
                   textAlign: TextAlign.justify,
                 ),
               ],
@@ -51,7 +43,7 @@ class DAbout extends StatelessWidget {
           ),
           const SpaceBox.horizontal(space: 50.0),
           SizedBox(
-            width: context.widthFromDesign(550.0),
+            width: context.widthFromDesign(500.0),
             height: context.widthFromDesign(750.0),
             child: DefaultTabController(
               length: 2,

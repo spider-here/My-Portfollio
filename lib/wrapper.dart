@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:zakwan_ali_portfolio/presentation/pages/desktop/navigation/d_navigation.dart';
 import 'package:zakwan_ali_portfolio/presentation/pages/mobile/navigation/m_navigation.dart';
@@ -13,7 +14,12 @@ class Wrapper extends StatelessWidget{
         return DNavigation();
       }
       else{
-        return MNavigation();
+        // return MNavigation();
+        return const Material(
+          child: Center(
+            child: Text('Mobile Layout Under Development.'),
+          ),
+        );
       }
     });
   }

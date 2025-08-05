@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:typewritertext/typewritertext.dart';
 import 'package:zakwan_ali_portfolio/controllers/presentation/pages_controller.dart';
+import 'package:zakwan_ali_portfolio/data/local/local_data.dart';
 import 'package:zakwan_ali_portfolio/utils/extensions/responsive_context.dart';
 import '../../../creatives/app_colors.dart';
 import '../../../custom_widgets/app_elevated_button.dart';
@@ -15,6 +16,7 @@ class DHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final data = LocalData.instance;
     return Scaffold(
       body: Padding(
           padding: context.designInsetLTRB(100.0, 50.0, 100.0, 0.0),
@@ -36,24 +38,24 @@ class DHome extends StatelessWidget {
                         children: [
                           TypeWriterText(
                             text: Text(
-                              'Hi, I\'m Zakwan',
+                              data.welcome,
                               style: context.textTheme.headlineLarge,
                               textAlign: TextAlign.start,
                             ),
                             duration: const Duration(milliseconds: 1),
                           ),
                           Text(
-                            'Crafting Seamless Experiences with',
+                            data.headline,
                             style: context.textTheme.headlineSmall,
                             textAlign: TextAlign.start,
                           ),
                           Text(
-                            'Flutter Magic.',
+                            data.headlineStyled,
                             style: context.textTheme.headlineMedium,
                             textAlign: TextAlign.start,
                           ),
                           Text(
-                            'Experienced Flutter developer with a strong background in web and mobile app development. Committed to continuous learning and dedicated to delivering quality work.',
+                            data.introduction,
                             style: context.textTheme.bodyMedium,
                             textAlign: TextAlign.start,
                             maxLines: 10,
@@ -87,7 +89,7 @@ class DHome extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              // Image.asset('images/portrait.png', width: context.widthFromDesign(600.0), height: context.heightFromDesign(850.0),),
+              Image.asset('images/portrait.png', width: context.widthFromDesign(600.0), height: context.heightFromDesign(850.0),),
             ],
           )),
     );

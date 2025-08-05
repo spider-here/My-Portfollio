@@ -86,10 +86,10 @@ class MNavigation extends StatelessWidget {
                       ? 0.2
                       : 1.0,
                   duration: const Duration(milliseconds: 300),
-                  // child: Image.asset(
-                  //   'images/portrait.png',
-                  //   height: context.heightFromDesign(420.0),
-                  // ),
+                  child: Image.asset(
+                    'images/portrait.png',
+                    height: context.heightFromDesign(420.0),
+                  ),
                 );
               }),
             ),

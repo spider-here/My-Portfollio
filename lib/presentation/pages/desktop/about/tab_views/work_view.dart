@@ -26,7 +26,7 @@ class WorkView extends StatelessWidget {
           shrinkWrap: true,
           physics: physics,
           theme: TimelineThemeData(
-            nodePosition: context.fontSizeFromDesign(0.40),
+            nodePosition: context.fontSizeFromDesign(0.30),
             color: context.appTheme.colorScheme.primary,
           ),
           builder: TimelineTileBuilder.connected(
