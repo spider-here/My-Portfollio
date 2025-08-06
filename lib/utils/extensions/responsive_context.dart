@@ -16,7 +16,7 @@ extension ResponsiveContext on BuildContext {
 
   /// Geometric mean scaling factor for consistent scaling
   double get _scaleFactor {
-    final avg = (_scaleWidth + _scaleHeight) / 2;
+    final double avg = (_scaleWidth + _scaleHeight) / 2;
     return isLandscape ? avg : avg.clamp(0.85, 1.0);
   }
 

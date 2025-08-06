@@ -15,7 +15,7 @@ class TimelineContentItem extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: <Widget>[
           Text(
             title,
             style: context.textTheme.titleSmall,

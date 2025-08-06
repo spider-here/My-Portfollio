@@ -15,7 +15,7 @@ class Globals{
   }
 
   static void downloadFile(String url) {
-    final anchor = web.HTMLAnchorElement()
+    final web.HTMLAnchorElement anchor = web.HTMLAnchorElement()
       ..href = url
       ..download = 'Zakwan Ali Tariq - CV'
       ..target = '_blank';
@@ -39,7 +39,7 @@ class Globals{
       return '*Required';
     }
 
-    final nameRegExp = RegExp(r"^[a-zA-Z' ]{2,50}$");
+    final RegExp nameRegExp = RegExp(r"^[a-zA-Z' ]{2,50}$");
 
     if (!nameRegExp.hasMatch(value.trim())) {
       return 'Enter a valid name (letters, spaces, apostrophes only)';

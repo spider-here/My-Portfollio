@@ -16,46 +16,45 @@ class DHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final data = LocalData.instance;
     return Scaffold(
       body: Padding(
           padding: context.designInsetLTRB(100.0, 50.0, 100.0, 0.0),
           child: DefaultPageBody(
-            children: [
+            children: <Widget>[
               Padding(
                 padding: context.designInsetOnly(top: 100.0),
                 child: Column(
                   // mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: <Widget>[
                     SizedBox(
                       width: context.width / 3,
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.end,
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
+                        children: <Widget>[
                           TypeWriterText(
                             text: Text(
-                              data.welcome,
+                              LocalData.welcome,
                               style: context.textTheme.headlineLarge,
                               textAlign: TextAlign.start,
                             ),
                             duration: const Duration(milliseconds: 1),
                           ),
                           Text(
-                            data.headline,
+                            LocalData.headline,
                             style: context.textTheme.headlineSmall,
                             textAlign: TextAlign.start,
                           ),
                           Text(
-                            data.headlineStyled,
+                            LocalData.headlineStyled,
                             style: context.textTheme.headlineMedium,
                             textAlign: TextAlign.start,
                           ),
                           Text(
-                            data.introduction,
+                            LocalData.introduction,
                             style: context.textTheme.bodyMedium,
                             textAlign: TextAlign.start,
                             maxLines: 10,
@@ -70,7 +69,7 @@ class DHome extends StatelessWidget {
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
+                          children: <Widget>[
                             Text(
                               'Contact me',
                               style: context.textTheme.bodySmall?.copyWith(
@@ -89,7 +88,7 @@ class DHome extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              Image.asset('images/portrait.png', width: context.widthFromDesign(600.0), height: context.heightFromDesign(850.0),),
+              // Image.asset('images/portrait.png', width: context.widthFromDesign(600.0), height: context.heightFromDesign(850.0),),
             ],
           )),
     );

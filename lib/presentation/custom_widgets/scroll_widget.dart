@@ -20,7 +20,7 @@ class ScrollWidget extends StatelessWidget {
             context.designInsetSymmetric(vertical: 6.0, horizontal: 10.0),
         child: Row(
           mainAxisSize: MainAxisSize.min,
-          children: [
+          children: <Widget>[
             Icon(
               Icons.mouse_outlined,
               size: 16.0,

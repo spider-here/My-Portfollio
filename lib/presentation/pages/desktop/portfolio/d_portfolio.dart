@@ -16,10 +16,10 @@ class DPortfolio extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final Size size = MediaQuery.of(context).size;
     return DefaultPageScaffold(
       body: DefaultPageBody(
-        children: [
+        children: <Widget>[
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(right: 100.0),
@@ -27,7 +27,7 @@ class DPortfolio extends StatelessWidget{
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: <Widget>[
                   PageTitle(context: context, text: 'My portfolio'),
                   const SpaceBox(
                     space: 50.0,
@@ -37,7 +37,7 @@ class DPortfolio extends StatelessWidget{
                           childAspectRatio: size.width/size.height),
                           itemCount: 12,
                           physics: const NeverScrollableScrollPhysics(),
-                          itemBuilder: (_, i){
+                          itemBuilder: (_, int i){
                             return PortfolioItem();
                           })
                   ),

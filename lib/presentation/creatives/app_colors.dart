@@ -15,7 +15,7 @@ Color footerLight = Colors.grey.shade900;
 Color footerDark = Colors.grey.shade800;
 
 
-const MaterialColor primarySwatchLight = MaterialColor(0xFF7250a8, {
+const MaterialColor primarySwatchLight = MaterialColor(0xFF7250a8, <int, Color>{
 50: Color(0xFFa690ca),
 100: Color(0xFF9c83c4),
 200: Color(0xFF9175bd),
@@ -28,7 +28,7 @@ const MaterialColor primarySwatchLight = MaterialColor(0xFF7250a8, {
 900: Color(0xFF4e3773),
 });
 
-const MaterialColor primarySwatchDark = MaterialColor(0xFF7250a8, {
+const MaterialColor primarySwatchDark = MaterialColor(0xFF7250a8, <int, Color>{
   50: Color(0xFFc6b8dd),
   100: Color(0xFFbcabd7),
   200: Color(0xFFb19dd0),

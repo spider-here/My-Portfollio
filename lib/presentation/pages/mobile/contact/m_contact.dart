@@ -23,33 +23,39 @@ class MContact extends StatelessWidget {
         key: _contactFormKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          children: <Widget>[
             AppTextField(
               controller: _contactC.firstNameController,
               label: 'First Name',
               validator: Globals.validateName,
             ),
+            const SpaceBox(space: 12.0),
             AppTextField(
               controller: _contactC.lastNameController,
               label: ' Last Name',
               validator: Globals.validateName,
             ),
+            const SpaceBox(space: 12.0),
             AppTextField(
               controller: _contactC.emailController,
               label: 'Email',
             ),
+            const SpaceBox(space: 12.0),
             AppTextField(
               controller: _contactC.organizationController,
               label: 'Organization',
             ),
+            const SpaceBox(space: 12.0),
             AppTextField(
               controller: _contactC.subjectController,
               label: 'Subject',
             ),
+            const SpaceBox(space: 12.0),
             AppTextArea(controller: _contactC.messageController),
+            const SpaceBox(space: 16.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
-              children: [
+              children: <Widget>[
                 AppElevatedButton(
                     onClick: () {
                       _contactFormKey.currentState?.validate();
@@ -57,7 +63,7 @@ class MContact extends StatelessWidget {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
+                      children: <Widget>[
                         Text(
                           'Send',
                           style: context.textTheme.bodySmall?.copyWith(
@@ -73,7 +79,8 @@ class MContact extends StatelessWidget {
                       ],
                     )),
               ],
-            )
+            ),
+            const SpaceBox(space: 32.0),
           ],
         ),
       ),

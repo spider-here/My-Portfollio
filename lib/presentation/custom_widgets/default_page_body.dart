@@ -14,7 +14,7 @@ class DefaultPageBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
         crossAxisAlignment: crossAxisAlignment ?? CrossAxisAlignment.center,
-        children: [
+        children: <Widget>[
           const Center(child: OtherProfiles()),
           isLandscape ? const SpaceBox.horizontal(space: 50.0) : const SpaceBox.horizontal(space: 16.0),
           if (children != null) ...?children

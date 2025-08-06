@@ -29,7 +29,7 @@ analyzer:
 
 linter:
   rules:
-    avoid_print: false
+    avoid_print: true
     prefer_single_quotes: true
     prefer_const_constructors: true
     prefer_const_literals_to_create_immutables: true
@@ -39,12 +39,12 @@ linter:
     prefer_final_locals: true
     prefer_final_fields: true
     sized_box_for_whitespace: true
-    always_specify_types: false
+    always_specify_types: true
     avoid_redundant_argument_values: true
     avoid_init_to_null: true
     prefer_const_constructors_in_immutables: true
     use_rethrow_when_possible: true
-    use_build_context_synchronously: false
+    use_build_context_synchronously: true
     prefer_const_declarations: true
     prefer_final_in_for_each: true
     avoid_function_literals_in_foreach_calls: true

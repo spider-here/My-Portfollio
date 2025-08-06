@@ -17,7 +17,7 @@ class MPortfolio extends StatelessWidget{
           itemCount: 12,
           physics: const BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
-          itemBuilder: (_, i){
+          itemBuilder: (_, int i){
             return PortfolioItem();
           }),
     );

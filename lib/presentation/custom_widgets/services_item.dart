@@ -39,13 +39,13 @@ class ServicesItem extends StatelessWidget {
             decoration: BoxDecoration(
                 gradient: LinearGradient(
               colors: Get.isDarkMode
-                  ? [
+                  ? <Color>[
                       primarySwatchLight.shade300,
                       primarySwatchLight.shade600,
                       primarySwatchLight.shade800,
                       backgroundDark
                     ]
-                  : [
+                  : <Color>[
                       primarySwatchLight.shade600,
                       primarySwatchLight.shade300,
                       primarySwatchLight.shade100,
@@ -57,7 +57,7 @@ class ServicesItem extends StatelessWidget {
             )),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children: <Widget>[
                 Expanded(
                   child: Container(
                     decoration: BoxDecoration(
@@ -84,7 +84,7 @@ class ServicesItem extends StatelessWidget {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
+                  children: <Widget>[
                     Padding(
                         padding: context.designInsetOnly(bottom: 5.0, right: 5.0),
                         child: AppIconButton(
@@ -114,7 +114,7 @@ class ServicesItem extends StatelessWidget {
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
-              children: [
+              children: <Widget>[
                 Padding(
                   padding: context.designInsetAll(rc.ResponsiveContext(context).isLandscape ? 50.0 : 8.0),
                   child: Text(
@@ -131,7 +131,7 @@ class ServicesItem extends StatelessWidget {
                   padding: context.designInsetAll(5.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
+                    children: <Widget>[
                       AppIconButton(
                         icon: Icon(
                           Icons.arrow_back_ios_rounded,
@@ -144,7 +144,7 @@ class ServicesItem extends StatelessWidget {
                         child: TextButton(
                           onPressed: () {},
                           style: ButtonStyle(
-                            textStyle: WidgetStatePropertyAll(
+                            textStyle: WidgetStatePropertyAll<TextStyle?>(
                               rc.ResponsiveContext(context).isLandscape ? context.appTextTheme.bodyLarge?.copyWith(
                                 fontWeight: FontWeight.bold,
                               ): context.appTextTheme.bodySmall?.copyWith(

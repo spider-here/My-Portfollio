@@ -29,7 +29,7 @@ class PortfolioItem extends StatelessWidget{
         padding: const EdgeInsets.all(10.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
+          children: <Widget>[
             const Text(
               'Flutter simplifies mobile app development by offering a unified development platform for both Android and iOS. Its streamlined workflow and intuitive UI framework empowers to build visually stunning and feature-rich applications. Let\'s craft your next mobile app together and bring your ideas to life!',
               overflow: TextOverflow.ellipsis,
@@ -41,7 +41,7 @@ class PortfolioItem extends StatelessWidget{
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: <Widget>[
                 InkWell(
                   borderRadius: BorderRadius.zero,
                   onTap: flipCardController.toggleCard,

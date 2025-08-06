@@ -22,20 +22,19 @@ class DAbout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final data = LocalData.instance;
     return DefaultPageScaffold(
       body: DefaultPageBody(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: <Widget>[
           SizedBox(
             width: context.widthFromDesign(550.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children: <Widget>[
                 PageTitle(context: context, text: 'About me'),
                 const SpaceBox(space: 32.0),
-                Text(
-                  data.about,
+                const Text(
+                  LocalData.about,
                   textAlign: TextAlign.justify,
                 ),
               ],
@@ -44,11 +43,11 @@ class DAbout extends StatelessWidget {
           const SpaceBox.horizontal(space: 50.0),
           SizedBox(
             width: context.widthFromDesign(500.0),
-            height: context.widthFromDesign(750.0),
+            height: context.heightFromDesign(750.0),
             child: DefaultTabController(
               length: 2,
               child: Column(
-                children: [
+                children: <Widget>[
                   SizedBox(
                     width: context.widthFromDesign(550.0),
                     height: context.heightFromDesign(50.0),
@@ -59,12 +58,12 @@ class DAbout extends StatelessWidget {
                       splashBorderRadius: BorderRadius.zero,
                       indicatorColor: context.textTheme.headlineMedium?.color,
                       labelColor: context.textTheme.headlineMedium?.color,
-                      tabs: [
+                      tabs: <Widget>[
                         Tab(
                           height: context.heightFromDesign(30.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
-                            children: [
+                            children: <Widget>[
                               Icon(
                                 Icons.work_rounded,
                                 size: context.fontSizeFromDesign(20.0),
@@ -83,7 +82,7 @@ class DAbout extends StatelessWidget {
                           height: context.heightFromDesign(30.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
-                            children: [
+                            children: <Widget>[
                               Icon(
                                 Icons.star,
                                 size: context.fontSizeFromDesign(20.0),
@@ -105,7 +104,7 @@ class DAbout extends StatelessWidget {
                     child: AppNeumorphic(
                       child: TabBarView(
                         physics: NeverScrollableScrollPhysics(),
-                        children: [
+                        children: <Widget>[
                           WorkView(),
                           QualificationsView(),
                         ],
@@ -115,16 +114,15 @@ class DAbout extends StatelessWidget {
                   const SpaceBox(space: 32.0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
+                    children: <Widget>[
                       AppElevatedButton(
                           onClick: () {
-                            Globals.downloadFile(
-                                'https://firebasestorage.googleapis.com/v0/b/zakwan-ali.appspot.com/o/cv%2FZakwan%20Ali%20Tariq%20-%20CV.pdf?alt=media&token=f2596387-81e5-494d-b049-d6a52be00222');
+                            Globals.downloadFile(LocalData.resumeUrl);
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
+                            children: <Widget>[
                               Icon(
                                 Icons.file_download_outlined,
                                 size: context.fontSizeFromDesign(14.0),

@@ -32,19 +32,19 @@ class AppIconButton extends StatelessWidget {
   ButtonStyle _themeModeStyle(BuildContext context) {
 
     return ButtonStyle(
-      shape: const WidgetStatePropertyAll(RoundedRectangleBorder(
+      shape: const WidgetStatePropertyAll<OutlinedBorder?>(RoundedRectangleBorder(
 
       )),
       foregroundColor: hover.isTrue
           ? Get.isDarkMode
-              ? const WidgetStatePropertyAll(primaryColorDark)
-              : const WidgetStatePropertyAll(accentTextLight)
-          : WidgetStatePropertyAll(
+              ? const WidgetStatePropertyAll<Color?>(primaryColorDark)
+              : const WidgetStatePropertyAll<Color?>(accentTextLight)
+          : WidgetStatePropertyAll<Color?>(
               context.textTheme.titleSmall?.color),
-      textStyle: WidgetStatePropertyAll(context.textTheme.titleSmall),
+      textStyle: WidgetStatePropertyAll<TextStyle?>(context.textTheme.titleSmall),
       overlayColor: Get.isDarkMode
-          ? WidgetStatePropertyAll(primaryColorLight.withAlpha(77))
-          : WidgetStatePropertyAll(primaryColorLight.withAlpha(26)),
+          ? WidgetStatePropertyAll<Color?>(primaryColorLight.withAlpha(77))
+          : WidgetStatePropertyAll<Color?>(primaryColorLight.withAlpha(26)),
     );
   }
 }

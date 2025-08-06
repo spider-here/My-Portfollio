@@ -13,7 +13,7 @@ class MServices extends StatelessWidget {
       height: context.width/2,
       child: GridView(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-        children: [
+        children: <Widget>[
           ServicesItem(
             title: 'Mobile App Development',
             subtitle: 'Flutter/Dart',

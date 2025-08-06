@@ -10,7 +10,7 @@ class OtherProfiles extends StatelessWidget {
   final bool horizontal;
 
   List<Widget> otherProfiles(BuildContext context) {
-    return [
+    return <Widget>[
       AppIconButton(
           onClick: () {},
           icon: SvgPicture.asset(

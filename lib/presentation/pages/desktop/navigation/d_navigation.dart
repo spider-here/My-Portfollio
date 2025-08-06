@@ -16,7 +16,7 @@ import '../services/d_services.dart';
 
 class DNavigation extends StatelessWidget {
   final PagesController pagesC = Get.find<PagesController>();
-  final List<Widget> pages = [
+  final List<Widget> pages = <Widget>[
     DHome(),
     DAbout(),
     DServices(),
@@ -45,7 +45,7 @@ class DNavigation extends StatelessWidget {
                   ? context.heightFromDesign(50.0)
                   : context.heightFromDesign(100.0),
             ),
-            builder: (context, height, child) {
+            builder: (BuildContext context, double height, Widget? child) {
               return AppBar(
                 toolbarHeight: height,
                 backgroundColor: context.appTheme.scaffoldBackgroundColor,
@@ -63,7 +63,7 @@ class DNavigation extends StatelessWidget {
                           color: Colors.grey, thickness: 0.2, height: 0.8)
                       : const SizedBox(),
                 ),
-                actions: [
+                actions: <Widget>[
                   TabButton(
                     onClick: () => pagesC.pageJump(0),
                     text: 'Home',
@@ -107,14 +107,14 @@ class DNavigation extends StatelessWidget {
           ),
         ),
         body: Stack(
-          children: [
+          children: <Widget>[
             Scrollbar(
               controller: pagesC.pageController,
               child: PageView(
                 controller: pagesC.pageController,
                 scrollDirection: Axis.vertical,
                 children: pages,
-                onPageChanged: (index) {
+                onPageChanged: (int index) {
                   pagesC.currentPageIndex.value = index;
                 },
               ),

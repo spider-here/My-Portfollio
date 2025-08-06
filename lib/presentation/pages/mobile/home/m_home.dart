@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:typewritertext/typewritertext.dart';
+import 'package:zakwan_ali_portfolio/data/local/local_data.dart';
 import 'package:zakwan_ali_portfolio/utils/extensions/context_theme.dart';
 import 'package:zakwan_ali_portfolio/utils/extensions/responsive_context.dart';
 
@@ -17,30 +18,29 @@ class MHome extends StatelessWidget{
       height: context.screenHeight - kToolbarHeight *2,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: <Widget>[
           TypeWriterText(
             text: Text(
-              'Hi, I\'m Zakwan',
+              LocalData.welcome,
               style: context.appTextTheme.headlineLarge,
               textAlign: TextAlign.start,
             ),
             duration: const Duration(milliseconds: 1),
           ),
           RichText(
-              text: TextSpan(children: [
+              text: TextSpan(children: <InlineSpan>[
                 TextSpan(
-                  text: 'Crafting Seamless Experiences with ',
+                  text: LocalData.headline,
                   style: context.appTextTheme.headlineSmall,
                 ),
                 TextSpan(
-                  text: 'Flutter Magic.',
+                  text: ' ${LocalData.headlineStyled}',
                   style: context.appTextTheme.headlineMedium,
                 ),
               ])),
           const SpaceBox(space: 12.0),
           Text(
-            'Experienced Flutter developer with a strong background in web and mobile app development. Committed to continuous learning and dedicated to delivering quality work.',
-            style: context.appTextTheme.bodyMedium,
+            LocalData.introduction, style: context.appTextTheme.bodyMedium,
             textAlign: TextAlign.start,
             maxLines: 10,
           ),
@@ -52,7 +52,7 @@ class MHome extends StatelessWidget{
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
+                children: <Widget>[
                   Text(
                     'Contact me',
                     style: context.appTextTheme.bodySmall?.copyWith(

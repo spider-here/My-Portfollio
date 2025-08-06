@@ -9,17 +9,17 @@ class Wrapper extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints){
+    return LayoutBuilder(builder: (BuildContext context, BoxConstraints constraints){
       if(context.isLandscape){
         return DNavigation();
       }
       else{
-        // return MNavigation();
-        return const Material(
-          child: Center(
-            child: Text('Mobile Layout Under Development.'),
-          ),
-        );
+        return MNavigation();
+        // return const Material(
+        //   child: Center(
+        //     child: Text('Mobile Layout Under Development.'),
+        //   ),
+        // );
       }
     });
   }

@@ -30,7 +30,7 @@ class AppTextArea extends StatelessWidget {
           height: context.heightFromDesign(height),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: <Widget>[
               Expanded(
                 child: Scrollbar(
                   controller: scrollController,

@@ -31,12 +31,12 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightTheme(context),
       darkTheme: AppTheme.darkTheme(context),
       initialRoute: '/',
-      getPages: [
-        GetPage(name: '/', page: () => const Wrapper()),
-        GetPage(name: '/dNav', page: DNavigation.new),
-        GetPage(name: '/mNav', page: MNavigation.new),
+      getPages: <GetPage<dynamic>>[
+        GetPage<dynamic>(name: '/', page: () => const Wrapper()),
+        GetPage<dynamic>(name: '/dNav', page: DNavigation.new),
+        GetPage<dynamic>(name: '/mNav', page: MNavigation.new),
       ],
-      initialBinding: BindingsBuilder(() {
+      initialBinding: BindingsBuilder<dynamic>(() {
         Get.lazyPut<PagesController>(PagesController.new);
         Get.lazyPut<ContactController>(ContactController.new);
       }),

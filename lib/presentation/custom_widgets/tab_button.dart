@@ -22,7 +22,7 @@ class TabButton extends StatelessWidget {
           () => TextButton(
         onPressed: onClick,
         style: _tabButtonStyle(context),
-        onHover: (isHover) => hover.value = isHover,
+        onHover: (bool isHover) => hover.value = isHover,
         child: Text(text),
       ),
     );
@@ -32,24 +32,24 @@ class TabButton extends StatelessWidget {
     final bool isSelected = index == selectedIndex.value;
 
     return ButtonStyle(
-      shape: const WidgetStatePropertyAll(RoundedRectangleBorder(
+      shape: const WidgetStatePropertyAll<OutlinedBorder?>(RoundedRectangleBorder(
 
       )),
       foregroundColor: _getForegroundColor(context, isSelected),
-      textStyle: WidgetStatePropertyAll(context.textTheme.titleSmall),
+      textStyle: WidgetStatePropertyAll<TextStyle?>(context.textTheme.titleSmall),
       overlayColor: Get.isDarkMode
-          ? WidgetStatePropertyAll(primaryColorLight.withAlpha(77))
-          : WidgetStatePropertyAll(primaryColorLight.withAlpha(26)),
+          ? WidgetStatePropertyAll<Color?>(primaryColorLight.withAlpha(77))
+          : WidgetStatePropertyAll<Color?>(primaryColorLight.withAlpha(26)),
     );
   }
 
   WidgetStateProperty<Color?> _getForegroundColor(BuildContext context, bool isSelected) {
     if (isSelected || hover.isTrue) {
       return Get.isDarkMode
-          ? const WidgetStatePropertyAll(primaryColorDark)
-          : const WidgetStatePropertyAll(accentTextLight);
+          ? const WidgetStatePropertyAll<Color?>(primaryColorDark)
+          : const WidgetStatePropertyAll<Color?>(accentTextLight);
     } else {
-      return WidgetStatePropertyAll(context.textTheme.titleSmall?.color);
+      return WidgetStatePropertyAll<Color?>(context.textTheme.titleSmall?.color);
     }
   }
 }

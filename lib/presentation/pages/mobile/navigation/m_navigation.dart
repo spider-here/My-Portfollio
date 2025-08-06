@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:zakwan_ali_portfolio/controllers/presentation/scrolls_controller.dart';
+import 'package:zakwan_ali_portfolio/presentation/custom_widgets/footer.dart';
 import 'package:zakwan_ali_portfolio/presentation/custom_widgets/space_box.dart';
 import 'package:zakwan_ali_portfolio/presentation/pages/mobile/about/m_about.dart';
 import 'package:zakwan_ali_portfolio/utils/extensions/context_theme.dart';
@@ -38,7 +39,7 @@ class MNavigation extends StatelessWidget {
                   ? context.heightFromDesign(kToolbarHeight)
                   : context.heightFromDesign(kToolbarHeight + 40.0),
             ),
-            builder: (context, height, child) {
+            builder: (BuildContext context, double height, Widget? child) {
               return AppBar(
                 toolbarHeight: height,
                 backgroundColor: context.appTheme.scaffoldBackgroundColor,
@@ -54,7 +55,7 @@ class MNavigation extends StatelessWidget {
                       color: Colors.grey, thickness: 0.2, height: 0.8)
                       : const SizedBox(),
                 ),
-                actions: [
+                actions: <Widget>[
                   AppIconButton(
                     onClick: AppTheme.changeTheme,
                     icon: Get.isDarkMode
@@ -68,58 +69,66 @@ class MNavigation extends StatelessWidget {
           ),
         ),
         body: Stack(
-          children: [
-            Align(
-              alignment: FractionalOffset.bottomRight,
-              child: Obx(() {
-                if (!scrollsC.hasClients) return const SizedBox.shrink();
-
-                final scroll = scrollsC.pixels.value;
-
-                final scrolledToMid = scroll > context.screenHeight / 2;
-                final scrolledDownStart = scroll > 0.0;
-
-                return AnimatedOpacity(
-                  opacity: scrolledToMid
-                      ? 0.0
-                      : scrolledDownStart
-                      ? 0.2
-                      : 1.0,
-                  duration: const Duration(milliseconds: 300),
-                  child: Image.asset(
-                    'images/portrait.png',
-                    height: context.heightFromDesign(420.0),
-                  ),
-                );
-              }),
-            ),
+          children: <Widget>[
+            // Align(
+            //   alignment: FractionalOffset.bottomRight,
+            //   child: Obx(() {
+            //     if (!scrollsC.hasClients) return const SizedBox.shrink();
+            //
+            //     final scroll = scrollsC.pixels.value;
+            //
+            //     final scrolledToMid = scroll > context.screenHeight / 2;
+            //     final scrolledDownStart = scroll > 0.0;
+            //
+            //     return AnimatedOpacity(
+            //       opacity: scrolledToMid
+            //           ? 0.0
+            //           : scrolledDownStart
+            //           ? 0.2
+            //           : 1.0,
+            //       duration: const Duration(milliseconds: 300),
+            //       child: Image.asset(
+            //         'images/portrait.png',
+            //         height: context.heightFromDesign(420.0),
+            //       ),
+            //     );
+            //   }),
+            // ),
             SingleChildScrollView(
               controller: scrollsC.scrollController,
               physics: const BouncingScrollPhysics(),
-              padding: context.designInsetLTRB(16.0, 24.0, 16.0, 0.0),
+              padding: context.designInsetOnly(top: 24.0),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const MHome(),
-                  const SpaceBox(space: 50.0),
-                  PageTitle(context: context, text: 'About me'),
-                  const SpaceBox(space: 16.0),
-                  const MAbout(),
-                  const SpaceBox(space: 50.0),
-                  PageTitle(context: context, text: 'Services I offer'),
-                  const SpaceBox(space:16.0),
-                  const MServices(),
-                  const SpaceBox(space: 50.0),
-                  PageTitle(context: context, text: 'My portfolio'),
-                  const SpaceBox(
-                    space: 16.0,
+                children: <Widget>[
+                  Padding(
+                    padding: context.designInsetSymmetric(horizontal: 16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        const MHome(),
+                        const SpaceBox(space: 50.0),
+                        PageTitle(context: context, text: 'About me'),
+                        const SpaceBox(space: 16.0),
+                        const MAbout(),
+                        const SpaceBox(space: 50.0),
+                        PageTitle(context: context, text: 'Services I offer'),
+                        const SpaceBox(space:16.0),
+                        const MServices(),
+                        const SpaceBox(space: 50.0),
+                        PageTitle(context: context, text: 'My portfolio'),
+                        const SpaceBox(
+                          space: 16.0,
+                        ),
+                        const MPortfolio(),
+                        const SpaceBox(space: 50.0),
+                        PageTitle(context: context, text: 'Contact me'),
+                        const SpaceBox(space: 16.0,
+                        ),
+                        MContact(),
+                      ],
+                    ),
                   ),
-                  const MPortfolio(),
-                  const SpaceBox(space: 50.0),
-                  PageTitle(context: context, text: 'Contact me'),
-                  const SpaceBox(space: 16.0,
-                  ),
-                  MContact(),
+                  const Footer()
                 ],
               ),
             ),

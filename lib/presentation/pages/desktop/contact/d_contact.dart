@@ -4,6 +4,7 @@ import 'package:zakwan_ali_portfolio/globals.dart';
 import 'package:zakwan_ali_portfolio/presentation/custom_widgets/app_elevated_button.dart';
 import 'package:zakwan_ali_portfolio/presentation/custom_widgets/app_text_area.dart';
 import 'package:zakwan_ali_portfolio/presentation/custom_widgets/app_text_field.dart';
+import 'package:zakwan_ali_portfolio/presentation/custom_widgets/footer.dart';
 import 'package:zakwan_ali_portfolio/presentation/custom_widgets/space_box.dart';
 import 'package:zakwan_ali_portfolio/utils/extensions/responsive_context.dart';
 import '../../../../controllers/presentation/contact_controller.dart';
@@ -23,19 +24,19 @@ class DContact extends StatelessWidget {
     return DefaultPageScaffold(
       body: DefaultPageBody(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: <Widget>[
           SizedBox(
             width: context.widthFromDesign(900.0),
             child: Form(
               key: _contactFormKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: <Widget>[
                   PageTitle(context: context, text: 'Contact me'),
                   const SpaceBox(space: 50.0,
                   ),
                   Row(
-                    children: [
+                    children: <Widget>[
                       Flexible(
                         child: AppTextField(
                           controller: _contactC.firstNameController,
@@ -57,7 +58,7 @@ class DContact extends StatelessWidget {
                   const SpaceBox(space: 16.0,
                   ),
                   Row(
-                    children: [
+                    children: <Widget>[
                       Flexible(
                         child: AppTextField(
                           controller: _contactC.emailController,
@@ -87,7 +88,7 @@ class DContact extends StatelessWidget {
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
+                    children: <Widget>[
                       AppElevatedButton(
                           onClick: () {
                             _contactFormKey.currentState?.validate();
@@ -95,7 +96,7 @@ class DContact extends StatelessWidget {
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
+                            children: <Widget>[
                               Text(
                                 'Send',
                                 style: context.textTheme.bodySmall?.copyWith(
@@ -118,17 +119,7 @@ class DContact extends StatelessWidget {
           ),
         ],
       ),
-      footer: Container(
-        height: context.heightFromDesign(80.0),
-        color: Get.isDarkMode ? footerDark : footerLight,
-        padding: EdgeInsets.symmetric(horizontal: context.widthFromDesign(32.0)),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Text('© 2025 Zakwan Ali Tariq. All rights reserved.', style: context.textTheme.bodySmall?.copyWith(color: primaryTextDark),)
-          ],
-        ),
-      ),
+      footer: const Footer()
     );
   }
 }

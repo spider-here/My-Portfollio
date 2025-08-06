@@ -11,15 +11,15 @@ class AppNeumorphic extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Get.isDarkMode;
+    final bool isDark = Get.isDarkMode;
 
     return NeumorphicTheme(
       theme: NeumorphicThemeData(
         baseColor: isDark ? Colors.grey.shade800 : Colors.grey.shade50,
         lightSource: isDark ? LightSource.bottomRight : LightSource.topLeft,
       ),
-      child: Builder(builder: (context){
-        final theme = NeumorphicTheme.currentTheme(context);
+      child: Builder(builder: (BuildContext context){
+        final NeumorphicThemeData theme = NeumorphicTheme.currentTheme(context);
         return Neumorphic(
             style: NeumorphicStyle(
               depth: NeumorphicTheme.embossDepth(context),

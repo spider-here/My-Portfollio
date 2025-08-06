@@ -16,7 +16,7 @@ class DServices extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultPageScaffold(
       body: DefaultPageBody(
-        children: [
+        children: <Widget>[
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(right: 100.0),
@@ -24,7 +24,7 @@ class DServices extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: <Widget>[
                   PageTitle(context: context, text: 'Services I offer'),
                   const Padding(
                     padding: EdgeInsets.only(top: 50.0),
@@ -33,7 +33,7 @@ class DServices extends StatelessWidget {
                     child: Flex(
                       direction: Axis.horizontal,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
+                      children: <Widget>[
                         Expanded(
                           child: ServicesItem(
                             title: 'Mobile App Development',
