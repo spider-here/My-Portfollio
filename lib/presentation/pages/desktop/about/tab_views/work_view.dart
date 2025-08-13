@@ -8,7 +8,7 @@ import 'package:zakwan_ali_portfolio/presentation/pages/desktop/about/widgets/ti
 import 'package:zakwan_ali_portfolio/utils/extensions/context_theme.dart';
 import 'package:zakwan_ali_portfolio/utils/extensions/responsive_context.dart';
 
-import '../../../../../globals.dart';
+import '../../../../../utils/helpers/globals.dart';
 
 class WorkView extends StatelessWidget {
   final ScrollPhysics physics;

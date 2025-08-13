@@ -11,6 +11,16 @@ class LocalData {
     return _instance!;
   }
 
+  //////////////////////////////////////////////////////////////////////////////
+  //Service Data
+  static const String emailJSUrl = 'https://api.emailjs.com/api/v1.0/email/send';
+  static const String emailJSPublicKey = 'xcPwpXGyYoU14eoBc';
+  static const String emailJSServiceID = 'service_8sqfql8';
+  static const String emailJSTemplateID = 'template_oj04akk';
+  //////////////////////////////////////////////////////////////////////////////
+
+  //////////////////////////////////////////////////////////////////////////////
+  //Content Data
   static const String welcome = 'Hi, I\'m Zakwan';
   static const String headline = 'Crafting Seamless Experiences with';
   static const String headlineStyled = 'Flutter Magic.';
@@ -32,4 +42,6 @@ I’m passionate about writing clean, maintainable code and building products th
   static const String copyright = '© 2025 Zakwan Ali Tariq. All rights reserved.';
 
   static const String resumeUrl = 'https://firebasestorage.googleapis.com/v0/b/zakwan-ali.appspot.com/o/cv%2FZakwan%20Ali%20Tariq%20-%20CV.pdf?alt=media&token=f2596387-81e5-494d-b049-d6a52be00222';
+  //////////////////////////////////////////////////////////////////////////////
+
 }

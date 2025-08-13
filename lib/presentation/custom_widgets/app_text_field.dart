@@ -5,12 +5,13 @@ import 'package:zakwan_ali_portfolio/utils/extensions/context_theme.dart';
 class AppTextField extends StatelessWidget {
   final TextEditingController controller;
   final String label;
+  final bool isEnabled;
   final String? Function(String?)? validator;
 
   const AppTextField({
     super.key,
     required this.controller,
-    required this.label, this.validator,
+    required this.label, this.validator, this.isEnabled = true,
   });
 
   @override
@@ -20,6 +21,7 @@ class AppTextField extends StatelessWidget {
         child: TextFormField(
           controller: controller,
           validator: validator,
+          enabled: isEnabled,
           decoration: InputDecoration(
             labelText: label,
             border: InputBorder.none,

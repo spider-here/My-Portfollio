@@ -9,13 +9,14 @@ class AppTextArea extends StatelessWidget {
   final String label;
   final double width;
   final double height;
+  final bool isEnabled;
   final FocusNode _focusNode = FocusNode();
 
   AppTextArea({
     super.key,
     required this.controller,
     this.width = 900.0,
-    this.height = 300.0, this.label = 'Message',
+    this.height = 300.0, this.label = 'Message', this.isEnabled = false,
   });
 
   @override
@@ -42,6 +43,7 @@ class AppTextArea extends StatelessWidget {
                       controller: controller,
                       maxLines: null,
                       keyboardType: TextInputType.multiline,
+                      enabled: isEnabled,
                       decoration: InputDecoration(
                         labelText: label,
                         border: InputBorder.none,

@@ -4,7 +4,7 @@ import 'package:zakwan_ali_portfolio/utils/extensions/context_theme.dart';
 import 'package:zakwan_ali_portfolio/utils/extensions/responsive_context.dart';
 
 import '../../../../data/local/local_data.dart';
-import '../../../../globals.dart';
+import '../../../../utils/helpers/globals.dart';
 import '../../../creatives/app_colors.dart';
 import '../../../custom_widgets/app_elevated_button.dart';
 import '../../../custom_widgets/app_neumorphic.dart';

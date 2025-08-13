@@ -7,7 +7,7 @@ import 'package:zakwan_ali_portfolio/presentation/pages/desktop/navigation/d_nav
 import 'package:zakwan_ali_portfolio/presentation/pages/mobile/navigation/m_navigation.dart';
 import 'package:zakwan_ali_portfolio/wrapper.dart';
 
-import 'controllers/presentation/contact_controller.dart';
+import 'controllers/service/contact_controller.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
