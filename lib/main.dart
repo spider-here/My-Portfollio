@@ -11,14 +11,6 @@ import 'controllers/service/contact_controller.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp(
-      options: const FirebaseOptions(
-          apiKey: 'AIzaSyBbWhILR2soDc694lSzroJITJlSrkyodWM',
-          authDomain: 'zakwan-ali.firebaseapp.com',
-          projectId: 'zakwan-ali',
-          storageBucket: 'zakwan-ali.appspot.com',
-          messagingSenderId: '210275736364',
-          appId: '1:210275736364:web:4c180a13f4b47b7342ea89'));
   runApp(const MyApp());
 }
 

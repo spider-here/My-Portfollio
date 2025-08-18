@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:zakwan_ali_portfolio/data/local/local_data.dart';
 import '../../../../controllers/presentation/pages_controller.dart';
 import '../../../custom_widgets/default_page_body.dart';
 import '../../../custom_widgets/default_page_scaffold.dart';
@@ -38,7 +39,7 @@ class DServices extends StatelessWidget {
                           child: ServicesItem(
                             title: 'Mobile App Development',
                             subtitle: 'Flutter/Dart',
-                            info: 'Flutter simplifies mobile app development by offering a unified development platform for both Android and iOS. Its streamlined workflow and intuitive UI framework empowers to build visually stunning and feature-rich applications. Let\'s craft your next mobile app together and bring your ideas to life!',
+                            info: LocalData.mobileAppDevDescription,
                             image: const AssetImage('images/mobile1.png'),
                           ),
                         ),
@@ -49,7 +50,7 @@ class DServices extends StatelessWidget {
                           child: ServicesItem(
                             title: 'Web App Development',
                             subtitle: 'Flutter/Dart',
-                            info: 'Flutter extends its versatility to web development, crafting dynamic and engaging web applications. With Flutter\'s adaptability and performance, businesses can enhance their online presence and user engagement across platforms. Elevate your online presence with a custom Flutter web app tailored to your needs!',
+                            info: LocalData.webAppDevDescription,
                             image: const AssetImage('images/web1.png'),
                           ),
                         ),

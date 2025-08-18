@@ -13,10 +13,12 @@ class LocalData {
 
   //////////////////////////////////////////////////////////////////////////////
   //Service Data
-  static const String emailJSUrl = 'https://api.emailjs.com/api/v1.0/email/send';
+  static const String emailJSUrl =
+      'https://api.emailjs.com/api/v1.0/email/send';
   static const String emailJSPublicKey = 'xcPwpXGyYoU14eoBc';
   static const String emailJSServiceID = 'service_8sqfql8';
   static const String emailJSTemplateID = 'template_oj04akk';
+
   //////////////////////////////////////////////////////////////////////////////
 
   //////////////////////////////////////////////////////////////////////////////
@@ -37,11 +39,26 @@ I actively apply Agile methodologies (Scrum) and have experience with CI/CD pipe
 
 I’m passionate about writing clean, maintainable code and building products that are not only technically solid but also deliver an exceptional user experience. My goal is to continuously innovate and solve real-world problems through technology, whether in a team environment or independently managing projects end-to-end.''';
 
+  static const String mobileAppDevDescription =
+      'Flutter simplifies mobile app development'
+      ' by offering a unified development platform for both Android and iOS. Its'
+      ' streamlined workflow and intuitive UI framework empowers to build visually'
+      ' stunning and feature-rich applications. Let\'s craft your next mobile app'
+      ' together and bring your ideas to life!';
+
+  static const String webAppDevDescription =
+      'Flutter extends its versatility to'
+      ' web development, crafting dynamic and engaging web applications. With '
+      'Flutter\'s adaptability and performance, businesses can enhance their '
+      'online presence and user engagement across platforms. Elevate your online'
+      ' presence with a custom Flutter web app tailored to your needs!';
+
   static const List<Qualification> qualifications = <Qualification>[];
   static const List<WorkExperience> workExperiences = <WorkExperience>[];
-  static const String copyright = '© 2025 Zakwan Ali Tariq. All rights reserved.';
+  static const String copyright =
+      '© 2025 Zakwan Ali Tariq. All rights reserved.';
 
-  static const String resumeUrl = 'https://firebasestorage.googleapis.com/v0/b/zakwan-ali.appspot.com/o/cv%2FZakwan%20Ali%20Tariq%20-%20CV.pdf?alt=media&token=f2596387-81e5-494d-b049-d6a52be00222';
-  //////////////////////////////////////////////////////////////////////////////
-
+  static const String resumeUrl =
+      'https://firebasestorage.googleapis.com/v0/b/zakwan-ali.appspot.com/o/cv%2FZakwan%20Ali%20Tariq%20-%20CV.pdf?alt=media&token=f2596387-81e5-494d-b049-d6a52be00222';
+//////////////////////////////////////////////////////////////////////////////
 }

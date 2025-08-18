@@ -1,8 +1,12 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:typewritertext/typewritertext.dart';
 import 'package:zakwan_ali_portfolio/controllers/presentation/pages_controller.dart';
 import 'package:zakwan_ali_portfolio/data/local/local_data.dart';
+import 'package:zakwan_ali_portfolio/presentation/custom_widgets/app_neumorphic.dart';
+import 'package:zakwan_ali_portfolio/utils/extensions/context_theme.dart';
 import 'package:zakwan_ali_portfolio/utils/extensions/responsive_context.dart';
 import '../../../creatives/app_colors.dart';
 import '../../../custom_widgets/app_elevated_button.dart';
@@ -87,10 +91,113 @@ class DHome extends StatelessWidget {
                   ],
                 ),
               ),
-              const Spacer(),
-              // Image.asset('images/portrait.png', width: context.widthFromDesign(600.0), height: context.heightFromDesign(850.0),),
-            ],
+              const SpaceBox.horizontal(space: 100.0),
+      Stack(
+        alignment: Alignment.topCenter,
+        children: [
+          // Nail at the top
+          Positioned(
+            top: 8,
+            child: Container(
+              width: 16,
+              height: 16,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.black, // nail color
+              ),
+            ),
+          ),
+
+          // Strings
+          Positioned(
+            top: 16,
+            child: CustomPaint(
+              size: Size(context.widthFromDesign(300.0), 50), // width ≈ frame width
+              painter: _StringPainter(),
+            ),
+          ),
+
+          // The tilted photo frame
+          Transform.rotate(
+            angle: math.pi / 16.0,
+            child: Card(
+              elevation: 16.0,
+              child: Container(
+                padding: context.designInsetAll(2.0),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: context.appTextTheme.titleLarge!.color!,
+                    width: 5.0,
+                  ),
+                ),
+                child: Container(
+                  padding: context.designInsetAll(2.0),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: context.appTheme.colorScheme.secondary,
+                      width: 2.0,
+                    ),
+                  ),
+                  child: Container(
+                    padding: context.designInsetAll(2.0),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: context.appTheme.primaryColor,
+                        width: 8.0,
+                      ),
+                    ),
+                    child: Container(
+                      padding: context.designInsetAll(2.0),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: context.appTextTheme.titleLarge!.color!,
+                          width: 5.0,
+                        ),
+                      ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: context.appTextTheme.titleLarge!.color!,
+                            width: 3.0,
+                          ),
+                        ),
+                        child: Image.asset(
+                          'images/portrait.png',
+                          width: context.widthFromDesign(290.0),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      )],
           )),
     );
   }
+}
+
+class _StringPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = Colors.black
+      ..strokeWidth = 2.0;
+
+    // Nail at the center top
+    final nail = Offset(size.width / 2, 0);
+
+    // Left and right corners of frame (approximate)
+    final leftCorner = Offset(size.width * 0.25, size.height);
+    final rightCorner = Offset(size.width * 0.75, size.height);
+
+    // Draw strings
+    canvas.drawLine(nail, leftCorner, paint);
+    canvas.drawLine(nail, rightCorner, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
