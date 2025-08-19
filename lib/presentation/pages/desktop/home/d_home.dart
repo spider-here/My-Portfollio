@@ -91,79 +91,68 @@ class DHome extends StatelessWidget {
                   ],
                 ),
               ),
-              const SpaceBox.horizontal(space: 100.0),
-      Stack(
-        alignment: Alignment.topCenter,
-        children: [
-          // Nail at the top
-          Positioned(
-            top: 8,
-            child: Container(
-              width: 16,
-              height: 16,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.black, // nail color
-              ),
-            ),
-          ),
-
-          // Strings
-          Positioned(
-            top: 16,
-            child: CustomPaint(
-              size: Size(context.widthFromDesign(300.0), 50), // width ≈ frame width
-              painter: _StringPainter(),
-            ),
-          ),
-
-          // The tilted photo frame
-          Transform.rotate(
-            angle: math.pi / 16.0,
-            child: Card(
-              elevation: 16.0,
-              child: Container(
-                padding: context.designInsetAll(2.0),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: context.appTextTheme.titleLarge!.color!,
-                    width: 5.0,
-                  ),
-                ),
-                child: Container(
-                  padding: context.designInsetAll(2.0),
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: context.appTheme.colorScheme.secondary,
-                      width: 2.0,
-                    ),
-                  ),
+              const SpaceBox.horizontal(space: 150.0),
+      SizedBox(
+        height: context.heightFromDesign(690.0),
+        width: context.widthFromDesign(446.0),
+        child: Stack(
+          alignment: Alignment.topCenter,
+          children: <Widget>[
+            Positioned(
+              bottom: context.heightFromDesign(66.0),
+              left: context.widthFromDesign(120.0),
+              child: Transform.rotate(
+                angle: -math.pi / 16.0,
+                child: Card(
+                  color: context.appTheme.scaffoldBackgroundColor,
+                  elevation: 6.0,
                   child: Container(
                     padding: context.designInsetAll(2.0),
                     decoration: BoxDecoration(
                       border: Border.all(
-                        color: context.appTheme.primaryColor,
-                        width: 8.0,
+                        color: context.appTextTheme.titleLarge!.color!,
+                        width: 5.0,
                       ),
                     ),
                     child: Container(
                       padding: context.designInsetAll(2.0),
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: context.appTextTheme.titleLarge!.color!,
-                          width: 5.0,
+                          color: context.appTheme.colorScheme.secondary,
+                          width: 2.0,
                         ),
                       ),
                       child: Container(
+                        padding: context.designInsetAll(2.0),
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color: context.appTextTheme.titleLarge!.color!,
-                            width: 3.0,
+                            color: context.appTheme.primaryColor,
+                            width: 8.0,
                           ),
                         ),
-                        child: Image.asset(
-                          'images/portrait.png',
-                          width: context.widthFromDesign(290.0),
+                        child: Container(
+                          padding: context.designInsetAll(2.0),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: context.appTextTheme.titleLarge!.color!,
+                              width: 5.0,
+                            ),
+                          ),
+                          child: Container(
+                            height: context.heightFromDesign(346.0),
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: context.appTextTheme.titleLarge!.color!,
+                                width: 3.0,
+                              ),
+                            ),
+                            child: AspectRatio(
+                              aspectRatio: 0.8,
+                              child: Image.asset(
+                                'images/flutter.png',
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -171,33 +160,72 @@ class DHome extends StatelessWidget {
                 ),
               ),
             ),
-          ),
-        ],
+            Positioned(
+              top: context.heightFromDesign(76.0),
+              left: 0.0,
+              child: Transform.rotate(
+                angle: math.pi / 16.0,
+                child: Card(
+                  color: Colors.transparent,
+                  elevation: 16.0,
+                  child: Container(
+                    padding: context.designInsetAll(2.0),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: context.appTextTheme.titleLarge!.color!,
+                        width: 5.0,
+                      ),
+                    ),
+                    child: Container(
+                      padding: context.designInsetAll(2.0),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: context.appTheme.colorScheme.secondary,
+                          width: 2.0,
+                        ),
+                      ),
+                      child: Container(
+                        padding: context.designInsetAll(2.0),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: context.appTheme.primaryColor,
+                            width: 8.0,
+                          ),
+                        ),
+                        child: Container(
+                          padding: context.designInsetAll(2.0),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: context.appTextTheme.titleLarge!.color!,
+                              width: 5.0,
+                            ),
+                          ),
+                          child: Container(
+                            height: context.heightFromDesign(346.0),
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: context.appTextTheme.titleLarge!.color!,
+                                width: 3.0,
+                              ),
+                            ),
+                            child: AspectRatio(
+                              aspectRatio: 0.8,
+                              child: Image.asset(
+                                'images/portrait.png',
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       )],
           )),
     );
   }
-}
-
-class _StringPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = Colors.black
-      ..strokeWidth = 2.0;
-
-    // Nail at the center top
-    final nail = Offset(size.width / 2, 0);
-
-    // Left and right corners of frame (approximate)
-    final leftCorner = Offset(size.width * 0.25, size.height);
-    final rightCorner = Offset(size.width * 0.75, size.height);
-
-    // Draw strings
-    canvas.drawLine(nail, leftCorner, paint);
-    canvas.drawLine(nail, rightCorner, paint);
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
